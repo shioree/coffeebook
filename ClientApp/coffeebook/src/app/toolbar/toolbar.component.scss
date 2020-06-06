@@ -1,0 +1,26 @@
+
+h1 {
+  margin: 8px 0;
+}
+
+.spacer {
+  flex: 1;
+}
+
+.toolbar {
+  height: 60px;
+  margin: -8px;
+  display: flex;
+  align-items: center;
+  background-color: burlywood;
+  color: white;
+  font-weight: 600;
+}
+
+.title {
+  padding-left: 1rem;
+}
+
+.login {
+  margin-right: 1rem;
+}

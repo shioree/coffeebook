@@ -1,0 +1,46 @@
+
+.tips {
+  display: flex;
+  flex-direction: row;
+  justify-content: right;
+  position: relative;
+  width: 80%;
+  max-width: 600px;
+  border-radius: 6px;
+  padding-top: 45px;
+  margin-top: 54px;
+  overflow: hidden;
+
+  p {
+    word-wrap: break-word;
+  }
+
+  .spacer {
+    flex: 1;
+  }
+
+}
+
+/* 吹き出し本体 */
+.balloon {
+  position: relative;
+  min-width: 120px;
+  padding: 20px;
+  border-radius: 20%;
+  background-color: #b1c5de;
+  box-shadow: 0px 0px 10px 0px #a7a7a7;         /* 吹き出し本体の影 */
+}
+
+/* 三角アイコン */
+.balloon::before {
+  content: '';
+  position: absolute;
+  display: block;
+  width: 0;
+  height: 0;
+  right: -10px;
+  top: 20%;
+  border-top: 15px solid transparent;
+  border-left: 15px solid #b1c5de;
+  border-bottom: 15px solid transparent;
+}
