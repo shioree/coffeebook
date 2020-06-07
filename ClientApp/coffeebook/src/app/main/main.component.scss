@@ -96,7 +96,6 @@ h6 {
 a,
 a:visited,
 a:hover {
-  // color: burlywood;
   text-decoration: none;
 }
 
@@ -108,8 +107,6 @@ app-tips {
   position: relative;
   margin-top: 64px;
   margin-right: 20px;
-  bottom: 70px;
-  right: 20px;
   z-index: -5;
   box-sizing: content-box;
 }

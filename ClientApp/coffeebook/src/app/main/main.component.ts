@@ -12,4 +12,8 @@ export class MainComponent implements OnInit {
   ngOnInit() {
   }
 
+  // publicメソッド
+
+  // privateメソッド
+
 }

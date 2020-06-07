@@ -3,38 +3,13 @@
 
 <div class="content" role="main">
 
-  <!-- Welcomeメッセージ -->
-  <div class="card highlight-card card-small">
-    <span>ドリップコーヒーのレシピを記録する</span>
-  </div>
+  <!-- メッセージ -->
   <div class="message">
+    <img src="../assets/illust-ya/mark_koujichu.png" width="360" height="360" alt="工事中の標識">
     <p>
-      コーヒーの淹れ方と味の特徴を記録できます。
+      このページは工事中です。
     </p>
   </div>
-
-  <form action="/register-recipe-for-drip" method="post">
-    <ul>
-      <li>
-        <label for="beans">豆の種類</label>
-        <input type="text" id="beans" name="beans_name">
-      </li>
-      <li>
-        <label for="roast">ローストの種類</label>
-        <input type="text" id="roast" name="roast_type">
-      </li>
-      <li>
-        <label for="grain">粉の粒度</label>
-        <input type="text" id="grain" name="grain_size">
-      </li>
-    </ul>
-    <div class="submit-button">
-      <input type="submit" value="登録">
-    </div>
-  </form>
-
-  <!-- 豆知識 -->
-  <app-tips><</app-tips>
 
   <!-- 背景の雲（Angularのテンプレートのものをそのまま利用）-->
   <svg id="clouds" alt="Gray Clouds Background" xmlns="http://www.w3.org/2000/svg" width="2611.084" height="485.677" viewBox="0 0 2611.084 485.677">
