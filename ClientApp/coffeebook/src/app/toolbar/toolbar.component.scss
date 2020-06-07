@@ -1,6 +1,7 @@
 
 h1 {
   margin: 8px 0;
+  outline: none;
 }
 
 .spacer {
@@ -19,6 +20,7 @@ h1 {
 
 .title {
   padding-left: 1rem;
+  cursor: pointer;
 }
 
 .login {

@@ -8,6 +8,7 @@ import { BrowseComponent } from './browse/browse.component';
 import { MainComponent } from './main/main.component';
 import { ToolbarComponent } from './toolbar/toolbar.component';
 import { TipsComponent } from './tips/tips.component';
+import { UnderConstructionComponent } from './under-construction/under-construction.component';
 
 @NgModule({
   declarations: [
@@ -16,7 +17,8 @@ import { TipsComponent } from './tips/tips.component';
     BrowseComponent,
     MainComponent,
     ToolbarComponent,
-    TipsComponent
+    TipsComponent,
+    UnderConstructionComponent
   ],
   imports: [
     BrowserModule,
