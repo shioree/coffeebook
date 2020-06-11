@@ -1,10 +1,10 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
-import { MainComponent } from './main/main.component';
-import { RecordComponent } from './record/record.component';
-import { BrowseComponent } from './browse/browse.component';
-import { UnderConstructionComponent } from './under-construction/under-construction.component';
+import { MainComponent } from './component/main/main.component';
+import { RecordComponent } from './component/record/record.component';
+import { BrowseComponent } from './component/browse/browse.component';
+import { UnderConstructionComponent } from './component/under-construction/under-construction.component';
 
 const routes: Routes = [
   { path: 'main', component: MainComponent },

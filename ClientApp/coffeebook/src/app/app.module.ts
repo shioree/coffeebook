@@ -1,14 +1,19 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { HttpClientModule } from '@angular/common/http';
+import { FormsModule } from '@angular/forms';
 
 import { AppRoutingModule } from './app-routing.module';
-import { AppComponent } from './app.component';
-import { RecordComponent } from './record/record.component';
-import { BrowseComponent } from './browse/browse.component';
-import { MainComponent } from './main/main.component';
-import { ToolbarComponent } from './toolbar/toolbar.component';
-import { TipsComponent } from './tips/tips.component';
-import { UnderConstructionComponent } from './under-construction/under-construction.component';
+
+import { AppComponent } from './component/app/app.component';
+import { RecordComponent } from './component/record/record.component';
+import { BrowseComponent } from './component/browse/browse.component';
+import { MainComponent } from './component/main/main.component';
+import { ToolbarComponent } from './component/toolbar/toolbar.component';
+import { TipsComponent } from './component/tips/tips.component';
+import { UnderConstructionComponent } from './component/under-construction/under-construction.component';
+
+import { HttpClientService } from './service/http-client.service';
 
 @NgModule({
   declarations: [
@@ -22,9 +27,13 @@ import { UnderConstructionComponent } from './under-construction/under-construct
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HttpClientModule,
+    FormsModule
   ],
-  providers: [],
+  providers: [
+    HttpClientService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

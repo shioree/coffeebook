@@ -13,23 +13,21 @@
     </p>
   </div>
 
-  <form action="/register-recipe-for-drip" method="post">
-    <ul>
-      <li>
-        <label for="beans">豆の種類</label>
-        <input type="text" id="beans" name="beans_name">
-      </li>
-      <li>
-        <label for="roast">ローストの種類</label>
-        <input type="text" id="roast" name="roast_type">
-      </li>
-      <li>
-        <label for="grain">粉の粒度</label>
-        <input type="text" id="grain" name="grain_size">
-      </li>
-    </ul>
-    <div class="submit-button">
-      <input type="submit" value="登録">
+  <form #myForm="ngForm" (ngSubmit)="submit()" novalidate>
+    <div class="input-container">
+      <label for="beans">豆の種類</label>
+      <input id="beans" name="beans_name" type="text" [(ngModel)]="recipe.name" #beans="ngModel">
+    </div>
+    <div class="input-container">
+      <label for="roast">ローストの種類</label>
+      <input id="roast" name="roast_type" type="text" [(ngModel)]="recipe.roast" #roast="ngModel">
+    </div>
+    <div class="input-container">
+      <label for="grain">粉の粒度</label>
+      <input id="grain" name="grain_size" type="text" [(ngModel)]="recipe.grain" #grain="ngModel">
+    </div>
+    <div class="submit-container">
+      <input type="submit" value="登録" [disabled]="myForm.invalid">
     </div>
   </form>
 

@@ -101,7 +101,7 @@ svg#clouds {
   width: 1920px;
 }
 
-form {
+#recipe {
   /* フォームをページの中央に置く */
   margin: 32px auto;
   width: 400px;
@@ -109,23 +109,21 @@ form {
   // padding: 1em;
   // border: 1px solid #CCC;
   // border-radius: 1em;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
-ul {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-}
-
-form li + li {
+.input-container {
   margin-top: 1em;
 }
 
 label {
-  /* すべてのラベルを同じサイズにして、きちんと揃える */
+  /* すべてのラベルを同じサイズにして、揃える */
   display: inline-block;
   width: 90px;
-  text-align: right;
+  text-align: left;
   margin-right: 10px;
 }
 
@@ -135,7 +133,7 @@ input, textarea {
   font: 1em "Yu Gothic UI", sans-serif;
 
   /* すべてのテキストフィールドを同じサイズにする */
-  width: 300px;
+  width: 240px;
   box-sizing: border-box;
 
   /* テキストフィールドのボーダーの外見を同一にする */
@@ -156,18 +154,7 @@ textarea {
   height: 5em;
 }
 
-.button {
-  /* ボタンを他のテキストフィールドと同じ場所に置く */
-  padding-left: 90px; /* label 要素と同じサイズ */
-}
-
-button {
-  /* このマージンは、ラベルとテキストフィールドの間のスペースと
-     おおよそ同じスペースを表す */
-  margin-left: .5em;
-}
-
-.submit-button {
+.submit-container {
   display: flex;
   justify-content: center;
   margin: 32px auto;
@@ -175,5 +162,6 @@ button {
   input {
     width: 240px;
     cursor: pointer;
+    font: 1em "Yu Gothic UI", sans-serif;
   }
 }

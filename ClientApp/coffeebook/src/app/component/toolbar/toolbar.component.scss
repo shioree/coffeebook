@@ -9,10 +9,10 @@ h1 {
 }
 
 .toolbar {
-  height: 60px;
-  margin: -8px;
   display: flex;
   align-items: center;
+  height: 60px;
+  margin: -8px;
   background-color: burlywood;
   color: white;
   font-weight: 600;
@@ -23,6 +23,6 @@ h1 {
   cursor: pointer;
 }
 
-.login {
+.button {
   margin-right: 1rem;
 }
