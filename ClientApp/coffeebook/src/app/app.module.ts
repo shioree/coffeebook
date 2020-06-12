@@ -12,6 +12,7 @@ import { MainComponent } from './component/main/main.component';
 import { ToolbarComponent } from './component/toolbar/toolbar.component';
 import { TipsComponent } from './component/tips/tips.component';
 import { UnderConstructionComponent } from './component/under-construction/under-construction.component';
+import { SummaryComponent } from './component/summary/summary.component';
 
 import { HttpClientService } from './service/http-client.service';
 
@@ -23,7 +24,8 @@ import { HttpClientService } from './service/http-client.service';
     MainComponent,
     ToolbarComponent,
     TipsComponent,
-    UnderConstructionComponent
+    UnderConstructionComponent,
+    SummaryComponent
   ],
   imports: [
     BrowserModule,

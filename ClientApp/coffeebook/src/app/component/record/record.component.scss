@@ -1,16 +1,4 @@
-
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-  margin: 8px 0;
-}
-
-.message {
-  text-align: center;
-}
+@import '../../../styles.scss';
 
 .content {
   display: flex;
@@ -21,70 +9,6 @@ h6 {
   align-items: center;
 }
 
-.card {
-  border-radius: 4px;
-  border: 1px solid #eee;
-  background-color: #fafafa;
-  height: 40px;
-  width: 200px;
-  margin: 0 8px 16px;
-  padding: 16px;
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  align-items: center;
-  transition: all 0.2s ease-in-out;
-  line-height: 24px;
-
-  span {
-    margin-left: 1rem;
-  }
-}
-
-.card-container .card:not(:last-child) {
-  margin-right: 0;
-}
-
-.card.card-small {
-  height: 16px;
-  width: 168px;
-}
-
-.card-container .card:not(.highlight-card) {
-  cursor: pointer;
-}
-
-.card-container .card:not(.highlight-card):hover {
-  transform: translateY(-3px);
-  box-shadow: 0 4px 17px rgba(black, 0.35);
-}
-
-.card-container .card:not(.highlight-card):hover .material-icons path {
-  fill: rgb(105, 103, 103);
-}
-
-.card.highlight-card {
-  background-color: burlywood;
-  color: white;
-  font-weight: 600;
-  border: none;
-  width: auto;
-  min-width: 30%;
-  position: relative;
-  cursor: default;
-}
-
-a,
-a:visited,
-a:hover {
-  // color: burlywood;
-  text-decoration: none;
-}
-
-a:hover {
-  color: brown;
-}
-
 app-tips {
   position: fixed;
   bottom: 70px;
@@ -93,29 +17,7 @@ app-tips {
   // width: 1920px;
 }
 
-svg#clouds {
-  position: fixed;
-  bottom: -160px;
-  left: -230px;
-  z-index: -10;
-  width: 1920px;
-}
-
-#recipe {
-  /* フォームをページの中央に置く */
-  margin: 32px auto;
-  width: 400px;
-  /* フォームの範囲がわかるようにする */
-  // padding: 1em;
-  // border: 1px solid #CCC;
-  // border-radius: 1em;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-}
-
-.input-container {
+form div {
   margin-top: 1em;
 }
 

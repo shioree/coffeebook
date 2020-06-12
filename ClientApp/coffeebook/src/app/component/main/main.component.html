@@ -4,15 +4,10 @@
 <div class="content" role="main">
 
   <!-- Welcomeメッセージ -->
-  <div class="card highlight-card card-small">
-    <span>Coffeebook へようこそ！</span>
-  </div>
-  <div class="message">
-    <p>
-      少しの違いで味が変わる、奥深いコーヒーの世界。<br>
-      淹れたコーヒーのレシピを記録して、自分の味を作りましょう。
-    </p>
-  </div>
+  <app-summary [summary]="{
+    title: 'Coffeebook へようこそ！',
+    summary: '少しの違いで味が変わる、奥深いコーヒーの世界。\n淹れたコーヒーのレシピを記録して、自分の味を作りましょう。'
+  }"></app-summary>
 
   <!-- しるす -->
   <div class="menu-container">

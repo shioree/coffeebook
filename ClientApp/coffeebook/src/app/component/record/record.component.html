@@ -4,25 +4,21 @@
 <div class="content" role="main">
 
   <!-- Welcomeメッセージ -->
-  <div class="card highlight-card card-small">
-    <span>ドリップコーヒーのレシピを記録する</span>
-  </div>
-  <div class="message">
-    <p>
-      コーヒーの淹れ方と味の特徴を記録できます。
-    </p>
-  </div>
+  <app-summary [summary]="{
+    title: 'ドリップコーヒーのレシピを記録する',
+    summary: 'コーヒーの淹れ方と味の特徴を記録できます。'
+  }"></app-summary>
 
   <form #myForm="ngForm" (ngSubmit)="submit()" novalidate>
-    <div class="input-container">
+    <div>
       <label for="beans">豆の種類</label>
       <input id="beans" name="beans_name" type="text" [(ngModel)]="recipe.name" #beans="ngModel">
     </div>
-    <div class="input-container">
+    <div>
       <label for="roast">ローストの種類</label>
       <input id="roast" name="roast_type" type="text" [(ngModel)]="recipe.roast" #roast="ngModel">
     </div>
-    <div class="input-container">
+    <div>
       <label for="grain">粉の粒度</label>
       <input id="grain" name="grain_size" type="text" [(ngModel)]="recipe.grain" #grain="ngModel">
     </div>

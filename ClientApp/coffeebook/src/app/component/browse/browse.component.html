@@ -4,14 +4,10 @@
 <div class="content" role="main">
 
   <!-- Welcomeメッセージ -->
-  <div class="card highlight-card card-small">
-    <span>コーヒーのレシピを閲覧する</span>
-  </div>
-  <div class="message">
-    <p>
-      登録したコーヒーのレシピを閲覧できます。
-    </p>
-  </div>
+  <app-summary [summary]="{
+    title: 'コーヒーのレシピを閲覧する',
+    summary: '登録したコーヒーのレシピを閲覧できます。'
+  }"></app-summary>
 
   <!-- 豆知識 -->
   <app-tips><</app-tips>
