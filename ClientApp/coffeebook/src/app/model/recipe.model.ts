@@ -15,10 +15,11 @@ export class Style {
 
 export class Evaluation {
   public rating: string;
-  public bitterness: number;
   public acidity: number;
+  public bitterness: number;
   public dencity: number;
-  public feature: string;
+  public otherFeatures: string;
+  public comment: string;
 }
 
 export class Recipe {

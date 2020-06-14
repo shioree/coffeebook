@@ -9,6 +9,16 @@
     summary: '登録したコーヒーのレシピを閲覧できます。'
   }"></app-summary>
 
+  <div *ngIf="recipes.length === 0">
+    <p>レシピを取得しています……</p>
+  </div>
+  <div *ngIf="recipes.length >= 1">
+    <div *ngFor="let recipe of recipes">
+      <div>{{recipe.name}}</div>
+      <div>{{recipe.memo}}</div>
+    </div>
+  </div>
+
   <!-- 豆知識 -->
   <app-tips><</app-tips>
 

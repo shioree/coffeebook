@@ -1,9 +1,10 @@
 import { Injectable } from '@angular/core';
-import { HttpHeaders, HttpResponse, HttpErrorResponse } from '@angular/common/http';
+import { HttpHeaders, HttpRequest, HttpResponse, HttpErrorResponse } from '@angular/common/http';
 import { map, catchError } from 'rxjs/operators';
 import { Observable, of } from 'rxjs';
 
 import { HttpClientService } from './http-client.service';
+import { Recipe } from '../model/recipe.model';
 import { environment } from '../../environments/environment';
 
 @Injectable({
@@ -31,7 +32,7 @@ export class RecordService {
   }*/
 
   public registerRecipe(recipe: any): Observable<any> {
-    return this.httpClient.post(environment.url_api, recipe, this.options);
+    return this.httpClient.post(environment.url_api_register, recipe, this.options);
   }
 
   /*public registerRecipe(recipe: any): number {
@@ -43,5 +44,11 @@ export class RecordService {
       });
     return st;
   }*/
+
+  public fetchRecipe(): Promise<any> {
+    const path = environment.url_api_fetch;
+    const httpRequest = new HttpRequest('GET', path, this.options);
+    return this.httpClient.request<any>(httpRequest);
+  }
 
 }

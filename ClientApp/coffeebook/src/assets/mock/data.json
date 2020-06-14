@@ -1,0 +1,50 @@
+[
+  {
+    "name": "\"Voice of Coffee\"のエチオピア浅煎り",
+    "memo": "酸味が効いていて、とてもおいしい",
+    "beans": {
+      "origin": "エチオピア",
+      "shop": "Voice of Coffee",
+      "roast": "ミディアムロースト",
+      "grain": "中挽き"
+    },
+    "style": {
+      "beansAmount": "18g",
+      "steamTime": "40秒",
+      "extractionTime": "2分",
+      "productAmount": "200ml"
+    },
+    "evaluation": {
+      "rating": 5,
+      "acidity": 5,
+      "bitterness": 1,
+      "density": 2,
+      "otherFeatures": "甘味はほとんどない",
+      "comment": "とても好みの味"
+    }
+  },
+  {
+    "name": "成城石井のエメラルドマウンテンブレンド",
+    "memo": "手軽に飲めるコーヒー",
+    "beans": {
+      "origin": "コロンビア",
+      "shop": "成城石井",
+      "roast": "シナモンロースト",
+      "grain": "粗挽き"
+    },
+    "style": {
+      "beansAmount": "16g",
+      "steamTime": "40秒",
+      "extractionTime": "2分",
+      "productAmount": "200ml"
+    },
+    "evaluation": {
+      "rating": 3,
+      "acidity": 1,
+      "bitterness": 4,
+      "density": 3,
+      "otherFeatures": "コクはそこそこ",
+      "comment": "浅煎りのわりに苦い"
+    }
+  }
+]

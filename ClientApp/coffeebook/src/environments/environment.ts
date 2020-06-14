@@ -5,7 +5,8 @@
 export const environment = {
   production: false,
   url_img_base: '../../assets/img/irasutoya/',
-  url_api: 'http://localhost:7071/api/RegisterRecipe'
+  url_api_register: 'http://localhost:7071/api/RegisterRecipe',
+  url_api_fetch: './assets/mock/data.json'
 };
 
 /*

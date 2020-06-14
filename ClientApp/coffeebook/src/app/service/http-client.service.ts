@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpHeaders, HttpResponse } from '@angular/common/http';
+import { HttpClient, HttpHeaders, HttpRequest, HttpResponse } from '@angular/common/http';
 import { Router } from '@angular/router';
 
 import { Observable} from 'rxjs';
@@ -39,6 +39,10 @@ export class HttpClientService {
 
   public post(url: string, body: any, options: any): Observable<any> {
     return this.http.post(url, body, options);
+  }
+
+  public request<T>(request: HttpRequest<any>): Promise<HttpResponse<T>> {
+    return this.http.request<T>(request).toPromise() as Promise<HttpResponse<T>>;
   }
 
 }
