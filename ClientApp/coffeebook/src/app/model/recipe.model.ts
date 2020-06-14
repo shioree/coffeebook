@@ -1,13 +1,4 @@
 
-export class Recipe {
-  public userId: string;
-  public name: string;
-  public beans: Beans;
-  public style: Style;
-  public evaluation: Evaluation;
-  public memo: string;
-}
-
 export class Beans {
   public origin: string;
   public shop: string;
@@ -28,4 +19,19 @@ export class Evaluation {
   public acidity: number;
   public dencity: number;
   public feature: string;
+}
+
+export class Recipe {
+  public userId: string;
+  public name: string;
+  public beans: Beans;
+  public style: Style;
+  public evaluation: Evaluation;
+  public memo: string;
+
+  constructor() {
+    this.beans = new Beans();
+    this.style = new Style();
+    this.evaluation = new Evaluation();
+  }
 }

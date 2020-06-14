@@ -1,10 +1,10 @@
 import { Injectable } from '@angular/core';
 import { HttpHeaders, HttpResponse, HttpErrorResponse } from '@angular/common/http';
 import { map, catchError } from 'rxjs/operators';
+import { Observable, of } from 'rxjs';
 
 import { HttpClientService } from './http-client.service';
-import { Const } from '../api/const';
-import { Observable, of } from 'rxjs';
+import { environment } from '../../environments/environment';
 
 @Injectable({
   providedIn: 'root'
@@ -31,7 +31,7 @@ export class RecordService {
   }*/
 
   public registerRecipe(recipe: any): Observable<any> {
-    return this.httpClient.post(Const.URL_BACKEND, recipe, this.options);
+    return this.httpClient.post(environment.url_api, recipe, this.options);
   }
 
   /*public registerRecipe(recipe: any): number {

@@ -13,9 +13,10 @@ import { ToolbarComponent } from './component/toolbar/toolbar.component';
 import { TipsComponent } from './component/tips/tips.component';
 import { UnderConstructionComponent } from './component/under-construction/under-construction.component';
 import { SummaryComponent } from './component/summary/summary.component';
+import { SucceededComponent } from './component/succeeded/succeeded.component';
+import { RecipeComponent } from './component/recipe/recipe.component';
 
 import { HttpClientService } from './service/http-client.service';
-import { SucceededComponent } from './component/succeeded/succeeded.component';
 
 @NgModule({
   declarations: [
@@ -27,7 +28,8 @@ import { SucceededComponent } from './component/succeeded/succeeded.component';
     TipsComponent,
     UnderConstructionComponent,
     SummaryComponent,
-    SucceededComponent
+    SucceededComponent,
+    RecipeComponent
   ],
   imports: [
     BrowserModule,

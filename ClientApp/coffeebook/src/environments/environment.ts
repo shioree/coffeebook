@@ -4,7 +4,8 @@
 
 export const environment = {
   production: false,
-  img_base_url: '../../assets/img/irasutoya/'
+  url_img_base: '../../assets/img/irasutoya/',
+  url_api: 'http://localhost:7071/api/RegisterRecipe'
 };
 
 /*

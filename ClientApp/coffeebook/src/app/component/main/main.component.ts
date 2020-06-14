@@ -16,11 +16,11 @@ export class MainComponent implements OnInit {
   public readonly srcTeacup: string;
 
   constructor() {
-    this.srcDrip = environment.img_base_url + 'coffee_paper_drip.png';
-    this.srcPress = environment.img_base_url + 'press_tea_maker.png';
-    this.srcEspresso = environment.img_base_url + 'espresso_maker.png';
-    this.srcLoupe = environment.img_base_url + 'search_mushimegane.png';
-    this.srcTeacup = environment.img_base_url + 'yuenchi_teacup.png';
+    this.srcDrip = environment.url_img_base + 'coffee_paper_drip.png';
+    this.srcPress = environment.url_img_base + 'press_tea_maker.png';
+    this.srcEspresso = environment.url_img_base + 'espresso_maker.png';
+    this.srcLoupe = environment.url_img_base + 'search_mushimegane.png';
+    this.srcTeacup = environment.url_img_base + 'yuenchi_teacup.png';
   }
 
   ngOnInit() {

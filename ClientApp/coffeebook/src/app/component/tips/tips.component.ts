@@ -12,7 +12,7 @@ export class TipsComponent implements OnInit {
   public readonly srcBarista: string;
 
   constructor() {
-    this.srcBarista = environment.img_base_url + 'job_barista_woman.png';
+    this.srcBarista = environment.url_img_base + 'job_barista_woman.png';
   }
 
   ngOnInit() {
