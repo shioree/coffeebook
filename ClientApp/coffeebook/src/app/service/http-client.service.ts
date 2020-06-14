@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { Router } from '@angular/router'
+import { HttpClient, HttpHeaders, HttpResponse } from '@angular/common/http';
+import { Router } from '@angular/router';
+
 import { Observable} from 'rxjs';
 
 @Injectable({
@@ -37,6 +38,7 @@ export class HttpClientService {
   }
 
   public post(url: string, body: any, options: any): Observable<any> {
-    return this.http.post(url, body, this.httpOptions);
+    return this.http.post(url, body, options);
   }
+
 }

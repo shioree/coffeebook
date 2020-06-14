@@ -15,6 +15,7 @@ import { UnderConstructionComponent } from './component/under-construction/under
 import { SummaryComponent } from './component/summary/summary.component';
 
 import { HttpClientService } from './service/http-client.service';
+import { SucceededComponent } from './component/succeeded/succeeded.component';
 
 @NgModule({
   declarations: [
@@ -25,7 +26,8 @@ import { HttpClientService } from './service/http-client.service';
     ToolbarComponent,
     TipsComponent,
     UnderConstructionComponent,
-    SummaryComponent
+    SummaryComponent,
+    SucceededComponent
   ],
   imports: [
     BrowserModule,

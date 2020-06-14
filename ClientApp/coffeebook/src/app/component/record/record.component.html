@@ -9,18 +9,47 @@
     summary: 'コーヒーの淹れ方と味の特徴を記録できます。'
   }"></app-summary>
 
+  <!-- メインコンテンツ-->
   <form #myForm="ngForm" (ngSubmit)="submit()" novalidate>
     <div>
-      <label for="beans">豆の種類</label>
-      <input id="beans" name="beans_name" type="text" [(ngModel)]="recipe.name" #beans="ngModel">
+      <label for="name">レシピ名</label>
+      <input id="name" name="name" type="text" [(ngModel)]="recipe.name" #name="ngModel">
     </div>
     <div>
-      <label for="roast">ローストの種類</label>
-      <input id="roast" name="roast_type" type="text" [(ngModel)]="recipe.roast" #roast="ngModel">
+      <label for="origin">豆の産地</label>
+      <input id="origin" name="origin" type="text" [(ngModel)]="beans.origin" #origin="ngModel">
     </div>
     <div>
-      <label for="grain">粉の粒度</label>
-      <input id="grain" name="grain_size" type="text" [(ngModel)]="recipe.grain" #grain="ngModel">
+      <label for="shop">購入した店舗</label>
+      <input id="shop" name="shop" type="text" [(ngModel)]="beans.shop" #shop="ngModel">
+    </div>
+    <div>
+      <label for="roast">ロースト</label>
+      <input id="roast" name="roast_type" type="text" [(ngModel)]="beans.roast" #roast="ngModel">
+    </div>
+    <div>
+      <label for="grain">挽き目（粒度）</label>
+      <input id="grain" name="grain_size" type="text" [(ngModel)]="beans.grain" #grain="ngModel">
+    </div>
+    <div>
+      <label for="beansAmount">豆の量（g）</label>
+      <input id="beansAmount" name="beansAmount" type="text" [(ngModel)]="sytle.beansAmount" #beansAmount="ngModel">
+    </div>
+    <div>
+      <label for="steamTime">蒸らし時間</label>
+      <input id="steamTime" name="steamTime" type="text" [(ngModel)]="sytle.steamTime" #steamTime="ngModel">
+    </div>
+    <div>
+      <label for="extractionTime">抽出時間</label>
+      <input id="extractionTime" name="extractionTime" type="text" [(ngModel)]="sytle.extractionTime" #extractionTime="ngModel">
+    </div>
+    <div>
+      <label for="productAmount">コーヒーの量（ml）</label>
+      <input id="productAmount" name="productAmount" type="text" [(ngModel)]="sytle.productAmount" #productAmount="ngModel">
+    </div>
+    <div>
+      <label for="memo">メモ</label>
+      <textarea id="memo" name="memo" type="text" [(ngModel)]="recipe.memo" #memo="ngModel"></textarea>
     </div>
     <div class="submit-container">
       <input type="submit" value="登録" [disabled]="myForm.invalid">

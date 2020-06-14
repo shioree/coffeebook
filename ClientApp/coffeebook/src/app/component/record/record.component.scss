@@ -1,14 +1,5 @@
 @import '../../../styles.scss';
 
-.content {
-  display: flex;
-  margin: 32px auto;
-  padding: 0 16px;
-  max-width: 960px;
-  flex-direction: column;
-  align-items: center;
-}
-
 app-tips {
   position: fixed;
   bottom: 70px;
@@ -18,34 +9,25 @@ app-tips {
 }
 
 form div {
-  margin-top: 1em;
+  margin-top: 0.5rem;
 }
 
 label {
-  /* すべてのラベルを同じサイズにして、揃える */
-  display: inline-block;
-  width: 90px;
+  display: block;
   text-align: left;
-  margin-right: 10px;
 }
 
 input, textarea {
-  /* すべてのテキストフィールドのフォント設定を一致させる
-     デフォルトで、textarea は等幅フォントが設定されている */
-  font: 1em "Yu Gothic UI", sans-serif;
-
-  /* すべてのテキストフィールドを同じサイズにする */
-  width: 240px;
+  font: 0.875rem "Yu Gothic", sans-serif;
+  height: 1.5rem;
+  width: 16rem;
+  margin-top: 0.2rem;
+  padding: 0.2rem;
   box-sizing: border-box;
 
-  /* テキストフィールドのボーダーの外見を同一にする */
-  border: 1px solid #999;
-}
-
-input:focus,
-textarea:focus {
-  /* アクティブな要素を少し強調する */
-  border-color: #000;
+  /* 下線のみを表示する */
+  border: none;
+  border-bottom: 1px solid #999;
 }
 
 textarea {
@@ -53,17 +35,36 @@ textarea {
   vertical-align: top;
 
   /* テキスト入力に十分な領域を与える */
-  height: 5em;
+  height: 4rem;
+}
+
+input:focus {
+  border-bottom: 2px solid #96692F;
+  outline: 0;
+}
+
+textarea:focus {
+  /* アクティブな要素を少し強調する */
+  box-shadow: 0 0 2px 0 #96692F;
+  border: 1px solid #FFF !important;
+  outline: 0;
 }
 
 .submit-container {
   display: flex;
   justify-content: center;
-  margin: 32px auto;
+  padding-top: 3rem;
 
   input {
     width: 240px;
     cursor: pointer;
     font: 1em "Yu Gothic UI", sans-serif;
+    background-color: lightgrey;
+    padding: 0;
+    border-bottom: 0rem;
+  }
+
+  input:hover {
+    background-color: #FFE3BF;
   }
 }

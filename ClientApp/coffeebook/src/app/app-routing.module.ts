@@ -3,12 +3,14 @@ import { Routes, RouterModule } from '@angular/router';
 
 import { MainComponent } from './component/main/main.component';
 import { RecordComponent } from './component/record/record.component';
+import { SucceededComponent } from './component/succeeded/succeeded.component';
 import { BrowseComponent } from './component/browse/browse.component';
 import { UnderConstructionComponent } from './component/under-construction/under-construction.component';
 
 const routes: Routes = [
   { path: 'main', component: MainComponent },
   { path: 'record/drip', component: RecordComponent },
+  { path: 'record/succeeded', component: SucceededComponent },
   { path: 'browse/by-conditions', component: BrowseComponent },
   { path: 'under-construction', component: UnderConstructionComponent },
   { path: '**', component: MainComponent },
