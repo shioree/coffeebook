@@ -21,20 +21,7 @@ export class BrowseComponent implements OnInit {
 
   ngOnInit() {
     this.recordService.fetchRecipe().then((res: HttpResponse<any>) => {
-      console.log(res.body);
-      // this.recipes.push(res.body);
       this.recipes = res.body;
-      // const array: Array<Recipe> = res.body;
-      // array.forEach((value, index, a) => {
-        // console.log(value);
-        // const tmp = JSON.parse(value);
-        // console.log(tmp);
-        // const tmp: Recipe = JSON.parse(value);
-        // console.log(tmp);
-        // this.recipes.push(value);
-      // });
-      // this.recipes = array;
-      // this.recipes.push(res.body);
     });
   }
 
