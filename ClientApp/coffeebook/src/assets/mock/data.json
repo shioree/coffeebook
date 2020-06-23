@@ -46,5 +46,101 @@
       "otherFeatures": "コクはそこそこ",
       "comment": "浅煎りのわりに苦い"
     }
+  },
+  {
+    "name": "\"BEYOND COFFEE ROASTERS\"のエチオピア浅煎りを短めに抽出",
+    "memo": "レイアウトの確認をしています。レイアウトの確認をしています。レイアウトの確認をしています。レイアウトの確認をしています。レイアウトの確認をしています。レイアウトの確認をしています。",
+    "beans": {
+      "origin": "エチオピア",
+      "shop": "BEYOND COFFEE ROASTERS",
+      "roast": "ミディアムロースト",
+      "grain": "中細挽き"
+    },
+    "style": {
+      "beansAmount": "15g",
+      "steamTime": "30秒",
+      "extractionTime": "1分30秒",
+      "productAmount": "160ml"
+    },
+    "evaluation": {
+      "rating": 2,
+      "acidity": 3,
+      "bitterness": 1,
+      "density": 1,
+      "otherFeatures": "フルーティーな酸味がある",
+      "comment": "雑味がかなり混じってしまって、おいしくなかった"
+    }
+  },
+  {
+    "name": "\"Voice of Coffee\"のエチオピア浅煎り",
+    "memo": "失敗した",
+    "beans": {
+      "origin": "エチオピア",
+      "shop": "Voice of Coffee",
+      "roast": "ミディアムロースト",
+      "grain": "中挽き"
+    },
+    "style": {
+      "beansAmount": "18g",
+      "steamTime": "40秒",
+      "extractionTime": "1分20秒",
+      "productAmount": "220ml"
+    },
+    "evaluation": {
+      "rating": 2,
+      "acidity": 4,
+      "bitterness": 1,
+      "density": 1,
+      "otherFeatures": "",
+      "comment": "雑味が混じってしまい、おいしくなかった"
+    }
+  },
+  {
+    "name": "成城石井のエメラルドマウンテンブレンド",
+    "memo": "手軽に飲めるコーヒー",
+    "beans": {
+      "origin": "コロンビア",
+      "shop": "成城石井",
+      "roast": "シナモンロースト",
+      "grain": "粗挽き"
+    },
+    "style": {
+      "beansAmount": "16g",
+      "steamTime": "40秒",
+      "extractionTime": "2分",
+      "productAmount": "200ml"
+    },
+    "evaluation": {
+      "rating": 3,
+      "acidity": 1,
+      "bitterness": 4,
+      "density": 3,
+      "otherFeatures": "コクはそこそこ",
+      "comment": "浅煎りのわりに苦い"
+    }
+  },
+  {
+    "name": "\"BEYOND COFFEE ROASTERS\"のエチオピア浅煎り、淹れ方を改善した",
+    "memo": "以前よりも丁寧に淹れた",
+    "beans": {
+      "origin": "エチオピア",
+      "shop": "BEYOND COFFEE ROASTERS",
+      "roast": "ミディアムロースト",
+      "grain": "中細挽き"
+    },
+    "style": {
+      "beansAmount": "18g",
+      "steamTime": "40秒",
+      "extractionTime": "2分",
+      "productAmount": "180ml"
+    },
+    "evaluation": {
+      "rating": 3,
+      "acidity": 3,
+      "bitterness": 1,
+      "density": 1,
+      "otherFeatures": "フルーティーな酸味がある",
+      "comment": "以前よりも丁寧に入れたら、雑味が消えてマシになった"
+    }
   }
 ]
