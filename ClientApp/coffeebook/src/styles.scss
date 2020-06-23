@@ -50,7 +50,7 @@ $mat-custom-primary: (
 // (imported above). For each palette, you can optionally specify a default, lighter, and darker
 // hue. Available color palettes: https://material.io/design/color/
 $coffeebook-primary: mat-palette($mat-custom-primary, 200);
-$coffeebook-accent: mat-palette($mat-pink, A200, A100, A400);
+$coffeebook-accent: mat-palette($mat-custom-primary, 900);
 
 // The warn palette is optional (defaults to red).
 $coffeebook-warn: mat-palette($mat-red);

@@ -16,10 +16,9 @@
     },
     "evaluation": {
       "rating": 5,
-      "acidity": 5,
-      "bitterness": 1,
+      "taste": 1,
       "density": 2,
-      "otherFeatures": "甘味はほとんどない",
+      "harshness": 0,
       "comment": "とても好みの味"
     }
   },
@@ -40,10 +39,9 @@
     },
     "evaluation": {
       "rating": 3,
-      "acidity": 1,
-      "bitterness": 4,
+      "taste": 5,
       "density": 3,
-      "otherFeatures": "コクはそこそこ",
+      "harshness": 0,
       "comment": "浅煎りのわりに苦い"
     }
   },
@@ -64,10 +62,9 @@
     },
     "evaluation": {
       "rating": 2,
-      "acidity": 3,
-      "bitterness": 1,
+      "taste": 2,
       "density": 1,
-      "otherFeatures": "フルーティーな酸味がある",
+      "harshness": 4,
       "comment": "雑味がかなり混じってしまって、おいしくなかった"
     }
   },
@@ -88,10 +85,9 @@
     },
     "evaluation": {
       "rating": 2,
-      "acidity": 4,
-      "bitterness": 1,
+      "taste": 2,
       "density": 1,
-      "otherFeatures": "",
+      "harshness": 3,
       "comment": "雑味が混じってしまい、おいしくなかった"
     }
   },
@@ -112,10 +108,9 @@
     },
     "evaluation": {
       "rating": 3,
-      "acidity": 1,
-      "bitterness": 4,
+      "taste": 4,
       "density": 3,
-      "otherFeatures": "コクはそこそこ",
+      "harshness": 5,
       "comment": "浅煎りのわりに苦い"
     }
   },
@@ -136,10 +131,9 @@
     },
     "evaluation": {
       "rating": 3,
-      "acidity": 3,
-      "bitterness": 1,
+      "taste": 3,
       "density": 1,
-      "otherFeatures": "フルーティーな酸味がある",
+      "harshness": 4,
       "comment": "以前よりも丁寧に入れたら、雑味が消えてマシになった"
     }
   }

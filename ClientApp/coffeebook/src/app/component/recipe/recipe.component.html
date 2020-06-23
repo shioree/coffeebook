@@ -1,37 +1,80 @@
-<div id="name">
-  <span>{{recipe.name}}</span>
-</div>
-<div id="evaluation">
-  <dl>
-    <dt [class.even]="even">評価</dt>
-    <dd>
-      <mat-icon [style.color]="isBright(1, this.recipe.evaluation.rating) ? '#deb887' : '#999'">star_rate</mat-icon>
-      <mat-icon [style.color]="isBright(2, this.recipe.evaluation.rating) ? '#deb887' : '#999'">star_rate</mat-icon>
-      <mat-icon [style.color]="isBright(3, this.recipe.evaluation.rating) ? '#deb887' : '#999'">star_rate</mat-icon>
-      <mat-icon [style.color]="isBright(4, this.recipe.evaluation.rating) ? '#deb887' : '#999'">star_rate</mat-icon>
-      <mat-icon [style.color]="isBright(5, this.recipe.evaluation.rating) ? '#deb887' : '#999'">star_rate</mat-icon>
-    </dd>
-    <dt [class.even]="even">苦味と酸味のバランス</dt>
-    <dd >
-      <mat-icon [style.color]="1 === this.recipe.evaluation.acidity ? '#deb887' : '#999'">stop</mat-icon>
-      <mat-icon [style.color]="2 === this.recipe.evaluation.acidity ? '#deb887' : '#999'">stop</mat-icon>
-      <mat-icon [style.color]="3 === this.recipe.evaluation.acidity ? '#deb887' : '#999'">stop</mat-icon>
-      <mat-icon [style.color]="4 === this.recipe.evaluation.acidity ? '#deb887' : '#999'">stop</mat-icon>
-      <mat-icon [style.color]="5 === this.recipe.evaluation.acidity ? '#deb887' : '#999'">stop</mat-icon>
-    </dd>
-    <dt [class.even]="even">濃度</dt>
-    <dd>
-      <mat-icon [style.color]="isBright(1, this.recipe.evaluation.density) ? '#deb887' : '#999'">stop</mat-icon>
-      <mat-icon [style.color]="isBright(2, this.recipe.evaluation.density) ? '#deb887' : '#999'">stop</mat-icon>
-      <mat-icon [style.color]="isBright(3, this.recipe.evaluation.density) ? '#deb887' : '#999'">stop</mat-icon>
-      <mat-icon [style.color]="isBright(4, this.recipe.evaluation.density) ? '#deb887' : '#999'">stop</mat-icon>
-      <mat-icon [style.color]="isBright(5, this.recipe.evaluation.density) ? '#deb887' : '#999'">stop</mat-icon>
-    </dd>
-    <dt [class.even]="even">その他の特徴</dt>
-    <dd>{{recipe.evaluation.otherFeatures}}</dd>
-    <dt [class.even]="even">コメント</dt>
-    <dd>{{recipe.evaluation.comment}}</dd>
-  </dl>
+<div id="recipe-header">
+  <div id="name">
+    <span>{{recipe.name}}</span>
+  </div>
+  <div id="evaluation">
+    <dl>
+      <dt [class.even]="even">評価</dt>
+      <dd>
+        <mat-icon [style.color]="isBright(1, this.recipe.evaluation.rating) ? '#deb887' : '#999'">star_rate</mat-icon>
+        <mat-icon [style.color]="isBright(2, this.recipe.evaluation.rating) ? '#deb887' : '#999'">star_rate</mat-icon>
+        <mat-icon [style.color]="isBright(3, this.recipe.evaluation.rating) ? '#deb887' : '#999'">star_rate</mat-icon>
+        <mat-icon [style.color]="isBright(4, this.recipe.evaluation.rating) ? '#deb887' : '#999'">star_rate</mat-icon>
+        <mat-icon [style.color]="isBright(5, this.recipe.evaluation.rating) ? '#deb887' : '#999'">star_rate</mat-icon>
+      </dd>
+      <dt [class.even]="even">苦味と酸味のバランス</dt>
+      <dd >
+        <!-- 1つ目　-->
+        <ng-container *ngIf="1 === this.recipe.evaluation.taste; else elseContentTaste1">
+          <mat-icon matBadge="酸" matBadgePosition="after" matBadgeColor="primary" class="icon-on-1">stop</mat-icon>
+        </ng-container>
+        <ng-template #elseContentTaste1>
+          <mat-icon class="icon-off">stop</mat-icon>
+        </ng-template>
+        <!-- 2つ目　-->
+        <ng-container *ngIf="2 === this.recipe.evaluation.taste; else elseContentTaste1">
+          <mat-icon matBadge="酸" matBadgePosition="after" matBadgeColor="primary" class="icon-on-2">stop</mat-icon>
+        </ng-container>
+        <ng-template #elseContentTaste1>
+          <mat-icon class="icon-off">stop</mat-icon>
+        </ng-template>
+        <!-- 3つ目　-->
+        <ng-container *ngIf="3 === this.recipe.evaluation.taste; else elseContentTaste1">
+          <mat-icon matBadge="バ" matBadgePosition="after" matBadgeColor="primary" class="icon-on-3">stop</mat-icon>
+        </ng-container>
+        <ng-template #elseContentTaste1>
+          <mat-icon class="icon-off">stop</mat-icon>
+        </ng-template>
+        <!-- 4つ目　-->
+        <ng-container *ngIf="4 === this.recipe.evaluation.taste; else elseContentTaste1">
+          <mat-icon matBadge="苦" matBadgePosition="after" matBadgeColor="accent" class="icon-on-4">stop</mat-icon>
+        </ng-container>
+        <ng-template #elseContentTaste1>
+          <mat-icon class="icon-off">stop</mat-icon>
+        </ng-template>
+        <!-- 5つ目　-->
+        <ng-container *ngIf="5 === this.recipe.evaluation.taste; else elseContentTaste1">
+          <mat-icon matBadge="苦" matBadgePosition="after" matBadgeColor="accent" class="icon-on-5">stop</mat-icon>
+        </ng-container>
+        <ng-template #elseContentTaste1>
+          <mat-icon class="icon-off">stop</mat-icon>
+        </ng-template>
+      </dd>
+      <dt [class.even]="even">コク</dt>
+      <dd>
+        <mat-icon [style.color]="isBright(1, this.recipe.evaluation.density) ? '#deb887' : '#999'">stop</mat-icon>
+        <mat-icon [style.color]="isBright(2, this.recipe.evaluation.density) ? '#d49d56' : '#999'">stop</mat-icon>
+        <mat-icon [style.color]="isBright(3, this.recipe.evaluation.density) ? '#cf8932' : '#999'">stop</mat-icon>
+        <mat-icon [style.color]="isBright(4, this.recipe.evaluation.density) ? '#c87717' : '#999'">stop</mat-icon>
+        <mat-icon [style.color]="isBright(5, this.recipe.evaluation.density) ? '#c46e16' : '#999'">stop</mat-icon>
+      </dd>
+      <dt [class.even]="even">雑味</dt>
+      <ng-container *ngIf="0 === this.recipe.evaluation.harshness; else elseContentHarshness">
+        <dd>雑味なし</dd>
+      </ng-container>
+      <ng-template #elseContentHarshness>
+        <dd>
+          <mat-icon [style.color]="isBright(1, this.recipe.evaluation.harshness) ? '#c0dfd2' : '#999'">stop</mat-icon>
+          <mat-icon [style.color]="isBright(2, this.recipe.evaluation.harshness) ? '#98ccb6' : '#999'">stop</mat-icon>
+          <mat-icon [style.color]="isBright(3, this.recipe.evaluation.harshness) ? '#73b89a' : '#999'">stop</mat-icon>
+          <mat-icon [style.color]="isBright(4, this.recipe.evaluation.harshness) ? '#5da887' : '#999'">stop</mat-icon>
+          <mat-icon [style.color]="isBright(5, this.recipe.evaluation.harshness) ? '#4f9976' : '#999'">stop</mat-icon>
+        </dd>
+      </ng-template>
+      <dt [class.even]="even">コメント</dt>
+      <dd class="text-align-left">{{recipe.evaluation.comment}}</dd>
+    </dl>
+  </div>
 </div>
 <div id="expansion-panel-container">
   <mat-expansion-panel>

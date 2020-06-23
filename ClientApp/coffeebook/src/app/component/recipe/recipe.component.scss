@@ -10,7 +10,7 @@
   // border-radius: 12% 12%;
   // margin-bottom: 2rem;
   // padding: 2rem;
-  max-width: 20rem;
+  // max-width: 20rem;
   width: 16rem;
   margin: 0 1rem 3rem 1rem;
   // box-shadow: 0 4px 17px rgba(black, 0.35);
@@ -21,14 +21,17 @@
 
 div {
   margin: 0;
+  cursor: default;
 }
 
 dl {
   margin-bottom: 0.1rem;
+  cursor: default;
 }
 
 dt {
-  // color: #FFD0BF;
+  // background-color: #FFF1DF;
+  background-color: #EFEFEF;
   color: #be6013;
   padding: 0.1rem 0.2rem;
 }
@@ -37,11 +40,44 @@ dd {
   // background-color: #FFF1DF;
   margin-bottom: 1rem;
   padding-top: 0.2rem;
+  text-align: right;
+}
+
+.icon-on-1 {
+  color: #deb887;
+}
+
+.icon-on-2 {
+  color: #d49d56;
+}
+
+.icon-on-3 {
+  color: #cf8932;
+}
+
+.icon-on-4 {
+  color: #c87717;
+}
+
+.icon-on-5 {
+  color: #c46e16;
+}
+
+.icon-off {
+  color: #999;
 }
 
 .even {
   // color: #FFE3BF;
   // color: #be6013;
+}
+
+.text-align-left {
+  text-align: start;
+}
+
+#recipe-header {
+  min-height: 26rem;
 }
 
 #name {
@@ -55,7 +91,7 @@ dd {
 }
 
 #expansion-panel-container {
-  margin-top: 1rem;
+  // margin-top: 1rem;
 
   dt {
     // color: #333;

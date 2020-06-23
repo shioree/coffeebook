@@ -11,6 +11,7 @@ import { MatMenuModule } from '@angular/material/menu';
 import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
 import { MatExpansionModule } from '@angular/material/expansion';
+import { MatBadgeModule } from '@angular/material/badge';
 
 import { AppComponent } from './component/app/app.component';
 import { RecordComponent } from './component/record/record.component';
@@ -48,7 +49,8 @@ import { HttpClientService } from './service/http-client.service';
     MatMenuModule,
     MatIconModule,
     MatButtonModule,
-    MatExpansionModule
+    MatExpansionModule,
+    MatBadgeModule
   ],
   providers: [
     HttpClientService

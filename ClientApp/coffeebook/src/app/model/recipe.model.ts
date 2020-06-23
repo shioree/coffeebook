@@ -15,10 +15,9 @@ export class Style {
 
 export class Evaluation {
   public rating: number;
-  public acidity: number;
-  public bitterness: number;
+  public taste: number;
   public density: number;
-  public otherFeatures: string;
+  public harshness: number;
   public comment: string;
 }
 
