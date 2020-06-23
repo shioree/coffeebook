@@ -1,4 +1,76 @@
 
+// Custom Theming for Angular Material
+// For more information: https://material.angular.io/guide/theming
+@import '~@angular/material/theming';
+// Plus imports for other components in your app.
+
+// Include the common styles for Angular Material. We include this here so that you only
+// have to load a single css file for Angular Material in your app.
+// Be sure that you only ever include this mixin once!
+@include mat-core();
+
+$mat-custom-primary: (
+  50 : #f7eee1,
+  100 : #ebd4b5,
+  200 : #deb887,
+  300 : #d49d56,
+  400 : #cf8932,
+  500 : #c87717,
+  600 : #c46e16,
+  700 : #be6013,
+  800 : #b7520e,
+  900 : #ad3b08,
+  /* contrast: (
+    50 : #e7f0fa,
+    100 : #c5daf2,
+    200 : #a4c4e9,
+    300 : #87adde,
+    400 : #769cd7,
+    500 : #678cd3,
+    600 : #607fc5,
+    700 : #576db3,
+    800 : #4e5da1,
+    900 : #3f4083
+  ) */
+  contrast: (
+    50 : #ffffff,
+    100 : #ffffff,
+    200 : #ffffff,
+    300 : #ffffff,
+    400 : #ffffff,
+    500 : #ffffff,
+    600 : #ffffff,
+    700 : #ffffff,
+    800 : #ffffff,
+    900 : #ffffff
+  )
+);
+
+// Define the palettes for your theme using the Material Design palettes available in palette.scss
+// (imported above). For each palette, you can optionally specify a default, lighter, and darker
+// hue. Available color palettes: https://material.io/design/color/
+$coffeebook-primary: mat-palette($mat-custom-primary, 200);
+$coffeebook-accent: mat-palette($mat-pink, A200, A100, A400);
+
+// The warn palette is optional (defaults to red).
+$coffeebook-warn: mat-palette($mat-red);
+
+// Create the theme object (a Sass map containing all of the palettes).
+$coffeebook-theme: mat-light-theme($coffeebook-primary, $coffeebook-accent, $coffeebook-warn);
+
+// Include theme styles for core and each component used in your app.
+// Alternatively, you can import and @include the theme mixins for each component
+// that you are using.
+@include angular-material-theme($coffeebook-theme);
+
+html, body {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+}
+
 h1,
 h2,
 h3,
@@ -8,11 +80,16 @@ h6 {
   margin: 8px 0;
 }
 
+.spacer {
+  flex: 1 1 auto;
+}
+
 .content {
   display: flex;
   margin: 32px auto;
   padding: 0 16px;
-  max-width: 960px;
+  // max-width: 960px;
+  // max-width: 1200px;
   flex-direction: column;
   align-items: center;
 }
@@ -42,7 +119,7 @@ h6 {
   background-color: #fafafa;
   height: 40px;
   width: 200px;
-  margin: 0 8px 16px;
+  margin: 0 4px 16px 4px;
   padding: 16px;
   display: flex;
   flex-direction: row;
@@ -57,7 +134,7 @@ h6 {
 }
 
 .card-container .card:not(:last-child) {
-  margin-right: 0;
+  // margin-right: 0;
 }
 
 .card.card-small {
@@ -90,7 +167,7 @@ h6 {
 }
 
 .margin-right-none {
-  margin-right: 0;
+  // margin-right: 0;
 }
 
 svg#clouds {

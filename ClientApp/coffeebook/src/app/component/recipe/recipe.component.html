@@ -1,1 +1,89 @@
-<p>recipe works!</p>
+<div id="name">
+  <span>{{recipe.name}}</span>
+</div>
+<div id="evaluation">
+  <dl>
+    <dt [class.even]="even">評価</dt>
+    <dd>
+      <mat-icon [style.color]="isBright(1, this.recipe.evaluation.rating) ? '#deb887' : '#999'">star_rate</mat-icon>
+      <mat-icon [style.color]="isBright(2, this.recipe.evaluation.rating) ? '#deb887' : '#999'">star_rate</mat-icon>
+      <mat-icon [style.color]="isBright(3, this.recipe.evaluation.rating) ? '#deb887' : '#999'">star_rate</mat-icon>
+      <mat-icon [style.color]="isBright(4, this.recipe.evaluation.rating) ? '#deb887' : '#999'">star_rate</mat-icon>
+      <mat-icon [style.color]="isBright(5, this.recipe.evaluation.rating) ? '#deb887' : '#999'">star_rate</mat-icon>
+    </dd>
+    <dt [class.even]="even">苦味と酸味のバランス</dt>
+    <dd >
+      <mat-icon [style.color]="1 === this.recipe.evaluation.acidity ? '#deb887' : '#999'">stop</mat-icon>
+      <mat-icon [style.color]="2 === this.recipe.evaluation.acidity ? '#deb887' : '#999'">stop</mat-icon>
+      <mat-icon [style.color]="3 === this.recipe.evaluation.acidity ? '#deb887' : '#999'">stop</mat-icon>
+      <mat-icon [style.color]="4 === this.recipe.evaluation.acidity ? '#deb887' : '#999'">stop</mat-icon>
+      <mat-icon [style.color]="5 === this.recipe.evaluation.acidity ? '#deb887' : '#999'">stop</mat-icon>
+    </dd>
+    <dt [class.even]="even">濃度</dt>
+    <dd>
+      <mat-icon [style.color]="isBright(1, this.recipe.evaluation.density) ? '#deb887' : '#999'">stop</mat-icon>
+      <mat-icon [style.color]="isBright(2, this.recipe.evaluation.density) ? '#deb887' : '#999'">stop</mat-icon>
+      <mat-icon [style.color]="isBright(3, this.recipe.evaluation.density) ? '#deb887' : '#999'">stop</mat-icon>
+      <mat-icon [style.color]="isBright(4, this.recipe.evaluation.density) ? '#deb887' : '#999'">stop</mat-icon>
+      <mat-icon [style.color]="isBright(5, this.recipe.evaluation.density) ? '#deb887' : '#999'">stop</mat-icon>
+    </dd>
+    <dt [class.even]="even">その他の特徴</dt>
+    <dd>{{recipe.evaluation.otherFeatures}}</dd>
+    <dt [class.even]="even">コメント</dt>
+    <dd>{{recipe.evaluation.comment}}</dd>
+  </dl>
+</div>
+<div id="expansion-panel-container">
+  <mat-expansion-panel>
+    <mat-expansion-panel-header>
+      <mat-panel-title>
+        使った豆
+      </mat-panel-title>
+    </mat-expansion-panel-header>
+      <div id="beans">
+        <dl>
+          <dt [class.even]="even">豆の産地</dt>
+          <dd>{{recipe.beans.origin}}</dd>
+          <dt [class.even]="even">購入した店舗</dt>
+          <dd>{{recipe.beans.shop}}</dd>
+          <dt [class.even]="even">ロースト</dt>
+          <dd>{{recipe.beans.roast}}</dd>
+          <dt [class.even]="even">挽き目（粒度）</dt>
+          <dd>{{recipe.beans.grain}}</dd>
+        </dl>
+      </div>
+  </mat-expansion-panel>
+  <mat-expansion-panel>
+    <mat-expansion-panel-header>
+      <mat-panel-title>
+        淹れ方
+      </mat-panel-title>
+    </mat-expansion-panel-header>
+      <div id="style">
+        <dl>
+          <dt [class.even]="even">豆の量（g）</dt>
+          <dd>{{recipe.style.beansAmount}}</dd>
+          <dt [class.even]="even">蒸らし時間</dt>
+          <dd>{{recipe.style.steamTime}}</dd>
+          <dt [class.even]="even">抽出時間</dt>
+          <dd>{{recipe.style.extractionTime}}</dd>
+          <dt [class.even]="even">出来上がりの量（ml）</dt>
+          <dd>{{recipe.style.productAmount}}</dd>
+        </dl>
+      </div>
+  </mat-expansion-panel>
+  <mat-expansion-panel>
+    <mat-expansion-panel-header>
+      <mat-panel-title>
+        メモ
+      </mat-panel-title>
+    </mat-expansion-panel-header>
+      <p>{{recipe.memo}}</p>
+  </mat-expansion-panel>
+</div>
+<div id="control">
+  <div class="example-button-row">
+    <button mat-flat-button color="primary">変更</button>
+    <button mat-flat-button color="primary">削除</button>
+  </div>
+</div>

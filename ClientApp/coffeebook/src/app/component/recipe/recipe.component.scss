@@ -1,0 +1,92 @@
+@import '../../../styles.scss';
+
+:host {
+  display: flex;
+  flex-direction: column;
+  // flex-wrap: wrap;
+  justify-content: flex-start;
+  // background-color: #EEEEEE;
+  // border: 1rem solod #B86E53;
+  // border-radius: 12% 12%;
+  // margin-bottom: 2rem;
+  // padding: 2rem;
+  max-width: 20rem;
+  width: 16rem;
+  margin: 0 1rem 3rem 1rem;
+  // box-shadow: 0 4px 17px rgba(black, 0.35);
+  // box-shadow: 0 2px 10px rgba(#96692F, 0.35);
+  box-shadow: 0 2px 10px rgba(black, 0.15);
+  padding: 1rem;
+}
+
+div {
+  margin: 0;
+}
+
+dl {
+  margin-bottom: 0.1rem;
+}
+
+dt {
+  // color: #FFD0BF;
+  color: #be6013;
+  padding: 0.1rem 0.2rem;
+}
+
+dd {
+  // background-color: #FFF1DF;
+  margin-bottom: 1rem;
+  padding-top: 0.2rem;
+}
+
+.even {
+  // color: #FFE3BF;
+  // color: #be6013;
+}
+
+#name {
+  height: 2.5rem;
+  font-size: 1rem;
+}
+
+#tast {
+  display: flex;
+  flex-direction: column;
+}
+
+#expansion-panel-container {
+  margin-top: 1rem;
+
+  dt {
+    // color: #333;
+    // background-color: #FFE3BF;
+  }
+
+  .even {
+    // color: #333;
+    // background-color: #FFE3BF;
+  }
+
+  mat-expansion-panel {
+    margin-top: 0.5rem;
+
+    mat-panel-title {
+      color: #888;
+    }
+  }
+}
+
+#control {
+  margin-top: 1rem;
+}
+
+.example-button-row {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.example-button-row button {
+  margin-left: 8px;
+}
+
+

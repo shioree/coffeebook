@@ -12,16 +12,19 @@ import { Recipe } from '../../model/recipe.model';
 export class BrowseComponent implements OnInit {
 
   public recipes: Array<Recipe>;
+  public isLoading: boolean;
 
   constructor(
     private recordService: RecordService
   ) {
     this.recipes = new Array<Recipe>();
+    this.isLoading = true;
   }
 
   ngOnInit() {
     this.recordService.fetchRecipe().then((res: HttpResponse<any>) => {
       this.recipes = res.body;
+      this.isLoading = false;
     });
   }
 
