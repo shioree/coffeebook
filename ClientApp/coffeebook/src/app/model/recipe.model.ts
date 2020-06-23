@@ -14,16 +14,15 @@ export class Style {
 }
 
 export class Evaluation {
-  public rating: string;
+  public rating: number;
   public acidity: number;
   public bitterness: number;
-  public dencity: number;
+  public density: number;
   public otherFeatures: string;
   public comment: string;
 }
 
 export class Recipe {
-  public userId: string;
   public name: string;
   public beans: Beans;
   public style: Style;
