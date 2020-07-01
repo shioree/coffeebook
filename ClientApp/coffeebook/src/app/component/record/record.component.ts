@@ -13,9 +13,6 @@ import { Recipe } from '../../model/recipe.model';
 export class RecordComponent implements OnInit {
 
   public recipe: Recipe　= new Recipe();
-  public firstFormGroup: FormGroup;
-  public secondFormGroup: FormGroup;
-  public thirdFormGroup: FormGroup;
 
   public roasts: Array<string> = [
     'ライトロースト',
@@ -60,15 +57,6 @@ export class RecordComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.firstFormGroup = this.formBuilder.group({
-      firstCtrl: ['', Validators.required]
-    });
-    this.secondFormGroup = this.formBuilder.group({
-      secondCtrl: ['', Validators.required]
-    });
-    this.thirdFormGroup = this.formBuilder.group({
-      thirdCtrl: ['', Validators.required]
-    });
   }
 
   public submit() {
