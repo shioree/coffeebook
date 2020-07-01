@@ -1,5 +1,31 @@
 @import '../../../styles.scss';
 
+#form {
+  margin-top: 1rem;
+}
+
+.form-field {
+  width: 16rem;
+}
+
+.with-icon {
+  display: flex;
+  align-items: center;
+}
+
+.description {
+  margin-top: 0;
+  padding-left: 0.5rem;
+}
+
+.form-group {
+  margin-bottom: 1rem;
+}
+
+.with-mat-hint {
+  margin-bottom: 1rem;
+}
+
 app-tips {
   position: fixed;
   bottom: 70px;
@@ -9,52 +35,53 @@ app-tips {
 }
 
 form div {
-  margin-top: 0.5rem;
+  // margin-top: 0.5rem;
 }
 
 label {
-  display: block;
-  text-align: left;
+  // display: block;
+  // text-align: left;
 }
 
 input, textarea {
-  font: 0.875rem "Yu Gothic", sans-serif;
+  /* font: 0.875rem "Yu Gothic", sans-serif;
   height: 1.5rem;
   width: 16rem;
   margin-top: 0.2rem;
   padding: 0.2rem;
-  box-sizing: border-box;
+  box-sizing: border-box; */
 
   /* 下線のみを表示する */
-  border: none;
-  border-bottom: 1px solid #999;
+  // border: none;
+  // border-bottom: 1px solid #999;
 }
 
 textarea {
   /* 複数行のテキストフィールドをラベルにきちんと揃える */
-  vertical-align: top;
+  // vertical-align: top;
 
   /* テキスト入力に十分な領域を与える */
   height: 4rem;
 }
 
 input:focus {
-  border-bottom: 2px solid #96692F;
-  outline: 0;
+  // border-bottom: 2px solid #96692F;
+  // outline: 0;
 }
 
 textarea:focus {
   /* アクティブな要素を少し強調する */
-  box-shadow: 0 0 2px 0 #96692F;
-  border: 1px solid #FFF !important;
-  outline: 0;
+  // box-shadow: 0 0 2px 0 #96692F;
+  // border: 1px solid #FFF !important;
+  // outline: 0;
 }
 
 .submit-container {
   display: flex;
-  justify-content: center;
-  padding-top: 3rem;
+  justify-content: flex-end;
+  margin-top: 1rem;
 
+  /*
   input {
     width: 240px;
     cursor: pointer;
@@ -66,5 +93,5 @@ textarea:focus {
 
   input:hover {
     background-color: #FFE3BF;
-  }
+  }*/
 }

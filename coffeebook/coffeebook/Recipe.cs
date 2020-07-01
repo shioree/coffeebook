@@ -9,6 +9,9 @@ namespace coffeebook
 {
     public partial class Recipe
     {
+        [JsonProperty("userId")]
+        public string UserId { get; set; }
+
         [JsonProperty("beans")]
         public Beans Beans { get; set; }
 
@@ -23,9 +26,6 @@ namespace coffeebook
 
         [JsonProperty("memo")]
         public string Memo { get; set; }
-
-        [JsonProperty("userId")]
-        public string UserId { get; set; }
     }
 
     public partial class Beans
@@ -48,17 +48,14 @@ namespace coffeebook
         [JsonProperty("rating")]
         public string Rating { get; set; }
 
-        [JsonProperty("acidity")]
-        public string Acidity { get; set; }
-
-        [JsonProperty("bitterness")]
-        public string Bitternesst { get; set; }
+        [JsonProperty("taste")]
+        public string Taste { get; set; }
 
         [JsonProperty("density")]
         public string Density { get; set; }
 
-        [JsonProperty("otherFeatures")]
-        public string OtherFeatures { get; set; }
+        [JsonProperty("harshness")]
+        public string Harshness { get; set; }
 
         [JsonProperty("comment")]
         public string Comment { get; set; }
@@ -72,8 +69,11 @@ namespace coffeebook
         [JsonProperty("steamTime")]
         public string SteamTime { get; set; }
 
-        [JsonProperty("extractionTime")]
-        public string ExtractionTime { get; set; }
+        [JsonProperty("extractionTimeMinute")]
+        public string ExtractionTimeMinute { get; set; }
+
+        [JsonProperty("extractionTimeSecond")]
+        public string ExtractionTimeSecond { get; set; }
 
         [JsonProperty("productAmount")]
         public string ProductAmount { get; set; }

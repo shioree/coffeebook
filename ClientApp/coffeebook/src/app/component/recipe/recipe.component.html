@@ -104,14 +104,14 @@
     </mat-expansion-panel-header>
       <div id="style">
         <dl>
-          <dt [class.even]="even">豆の量（g）</dt>
-          <dd>{{recipe.style.beansAmount}}</dd>
+          <dt [class.even]="even">豆の量</dt>
+          <dd>{{recipe.style.beansAmount}}g</dd>
           <dt [class.even]="even">蒸らし時間</dt>
-          <dd>{{recipe.style.steamTime}}</dd>
+          <dd>{{recipe.style.steamTime}}秒</dd>
           <dt [class.even]="even">抽出時間</dt>
-          <dd>{{recipe.style.extractionTime}}</dd>
-          <dt [class.even]="even">出来上がりの量（ml）</dt>
-          <dd>{{recipe.style.productAmount}}</dd>
+          <dd>{{recipe.style.extractionTimeMinute}}分{{recipe.style.extractionTimeSecond}}秒</dd>
+          <dt [class.even]="even">出来上がりの量</dt>
+          <dd>{{recipe.style.productAmount}}ml</dd>
         </dl>
       </div>
   </mat-expansion-panel>

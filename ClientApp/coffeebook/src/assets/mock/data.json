@@ -9,10 +9,11 @@
       "grain": "中挽き"
     },
     "style": {
-      "beansAmount": "18g",
-      "steamTime": "40秒",
-      "extractionTime": "2分",
-      "productAmount": "200ml"
+      "beansAmount": "18",
+      "steamTime": "40",
+      "extractionTimeMinute": "2",
+      "extractionTimeSecond": "0",
+      "productAmount": "200"
     },
     "evaluation": {
       "rating": 5,
@@ -32,10 +33,11 @@
       "grain": "粗挽き"
     },
     "style": {
-      "beansAmount": "16g",
-      "steamTime": "40秒",
-      "extractionTime": "2分",
-      "productAmount": "200ml"
+      "beansAmount": "16",
+      "steamTime": "40",
+      "extractionTimeMinute": "2",
+      "extractionTimeSecond": "0",
+      "productAmount": "200"
     },
     "evaluation": {
       "rating": 3,
@@ -55,10 +57,11 @@
       "grain": "中細挽き"
     },
     "style": {
-      "beansAmount": "15g",
-      "steamTime": "30秒",
-      "extractionTime": "1分30秒",
-      "productAmount": "160ml"
+      "beansAmount": "15",
+      "steamTime": "30",
+      "extractionTimeMinute": "1",
+      "extractionTimeSecond": "30",
+      "productAmount": "160"
     },
     "evaluation": {
       "rating": 2,
@@ -78,10 +81,11 @@
       "grain": "中挽き"
     },
     "style": {
-      "beansAmount": "18g",
-      "steamTime": "40秒",
-      "extractionTime": "1分20秒",
-      "productAmount": "220ml"
+      "beansAmount": "18",
+      "steamTime": "40",
+      "extractionTimeMinute": "1",
+      "extractionTimeSecond": "20",
+      "productAmount": "220"
     },
     "evaluation": {
       "rating": 2,
@@ -101,10 +105,11 @@
       "grain": "粗挽き"
     },
     "style": {
-      "beansAmount": "16g",
-      "steamTime": "40秒",
-      "extractionTime": "2分",
-      "productAmount": "200ml"
+      "beansAmount": "16",
+      "steamTime": "40",
+      "extractionTimeMinute": "2",
+      "extractionTimeSecond": "0",
+      "productAmount": "200"
     },
     "evaluation": {
       "rating": 3,
@@ -124,10 +129,11 @@
       "grain": "中細挽き"
     },
     "style": {
-      "beansAmount": "18g",
-      "steamTime": "40秒",
-      "extractionTime": "2分",
-      "productAmount": "180ml"
+      "beansAmount": "18",
+      "steamTime": "40",
+      "extractionTimeMinute": "3",
+      "extractionTimeSecond": "20",
+      "productAmount": "180"
     },
     "evaluation": {
       "rating": 3,

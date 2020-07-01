@@ -10,58 +10,192 @@
   }"></app-summary>
 
   <!-- メインコンテンツ-->
-  <form #myForm="ngForm" (ngSubmit)="submit()" novalidate>
-    <div>
-      <label for="name">レシピ名</label>
-      <input id="name" name="name" type="text" [(ngModel)]="recipe.name" #name="ngModel">
+  <form id="form" #myForm="ngForm" (ngSubmit)="submit()" novalidate>
+
+    <div class="form-group">
+      <div class="with-icon">
+        <mat-icon color="primary">looks_one</mat-icon>
+        <p>使った豆の情報を入力してください</p>
+      </div>
+      <div>
+        <mat-form-field class="form-field">
+          <mat-label>豆の産地</mat-label>
+          <input matInput placeholder="エチオピア" required id="origin" name="origin" type="text" [(ngModel)]="recipe.beans.origin">
+          <button mat-button *ngIf="recipe.beans.origin" matSuffix mat-icon-button aria-label="Clear" (click)="recipe.beans.origin=''">
+            <mat-icon>close</mat-icon>
+          </button>
+        </mat-form-field>
+      </div>
+      <div>
+        <mat-form-field class="form-field">
+          <mat-label>購入した店舗</mat-label>
+          <input matInput placeholder="" required id="shop" name="shop" type="text" [(ngModel)]="recipe.beans.shop">
+          <button mat-button *ngIf="recipe.beans.shop" matSuffix mat-icon-button aria-label="Clear" (click)="recipe.beans.shop=''">
+            <mat-icon>close</mat-icon>
+          </button>
+        </mat-form-field>
+      </div>
+      <div>
+        <mat-form-field class="form-field">
+          <mat-label>ロースト</mat-label>
+          <mat-select disableRipple name="roast" [(ngModel)]="recipe.beans.roast">
+            <mat-option></mat-option>
+            <mat-option *ngFor="let roast of roasts" [value]="roast">{{roast}}</mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div>
+      <div>
+        <mat-form-field class="form-field">
+          <mat-label>挽き目</mat-label>
+          <mat-select disableRipple name="grain" [(ngModel)]="recipe.beans.grain">
+            <mat-option></mat-option>
+            <mat-option *ngFor="let grain of grains" [value]="grain">{{grain}}</mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div>
     </div>
-    <div>
-      <label for="origin">豆の産地</label>
-      <input id="origin" name="origin" type="text" [(ngModel)]="recipe.beans.origin" #origin="ngModel">
+
+    <div class="form-group">
+      <div class="with-icon">
+        <mat-icon color="primary">looks_two</mat-icon>
+        <p>淹れ方を入力してください</p>
+      </div>
+      <div>
+        <mat-form-field class="form-field">
+          <mat-label>豆の量（g）</mat-label>
+          <input matInput placeholder="エチオピア" id="beansAmount" name="beansAmount" type="number" [(ngModel)]="recipe.style.beansAmount">
+          <button mat-button *ngIf="recipe.style.beansAmount" matSuffix mat-icon-button aria-label="Clear" (click)="recipe.style.beansAmount=''">
+            <mat-icon>close</mat-icon>
+          </button>
+        </mat-form-field>
+      </div>
+      <div>
+        <mat-form-field class="form-field">
+          <mat-label>蒸らし時間（秒）</mat-label>
+          <input matInput placeholder="" id="steamTime" name="steamTime" type="number" [(ngModel)]="recipe.style.steamTime">
+          <button mat-button *ngIf="recipe.style.steamTime" matSuffix mat-icon-button aria-label="Clear" (click)="recipe.style.steamTime=''">
+            <mat-icon>close</mat-icon>
+          </button>
+        </mat-form-field>
+      </div>
+      <div>
+        <mat-form-field class="form-field with-mat-hint">
+          <mat-label>抽出時間（分）</mat-label>
+          <input matInput placeholder="" id="extractionTimeMinute" name="extractionTimeMinute" type="number" [(ngModel)]="recipe.style.extractionTimeMinute">
+          <button mat-button *ngIf="recipe.style.extractionTimeMinute" matSuffix mat-icon-button aria-label="Clear" (click)="recipe.style.extractionTimeMinute=''">
+            <mat-icon>close</mat-icon>
+          </button>
+          <mat-hint>抽出時間の分の部分</mat-hint>
+        </mat-form-field>
+      </div>
+      <div>
+        <mat-form-field class="form-field with-mat-hint">
+          <mat-label>抽出時間（秒）</mat-label>
+          <input matInput placeholder="" id="extractionTimeSecond" name="extractionTimeSecond" type="number" [(ngModel)]="recipe.style.extractionTimeSecond">
+          <button mat-button *ngIf="recipe.style.extractionTimeSecond" matSuffix mat-icon-button aria-label="Clear" (click)="recipe.style.extractionTimeSecond=''">
+            <mat-icon>close</mat-icon>
+          </button>
+          <mat-hint>抽出時間の秒の部分</mat-hint>
+        </mat-form-field>
+      </div>
+      <div>
+        <mat-form-field class="form-field">
+          <mat-label>出来上がりの量（ml）</mat-label>
+          <input matInput placeholder="" id="productAmount" name="productAmount" type="number" [(ngModel)]="recipe.style.productAmount">
+          <button mat-button *ngIf="recipe.style.productAmount" matSuffix mat-icon-button aria-label="Clear" (click)="recipe.style.productAmount=''">
+            <mat-icon>close</mat-icon>
+          </button>
+        </mat-form-field>
+      </div>
     </div>
-    <div>
-      <label for="shop">購入した店舗</label>
-      <input id="shop" name="shop" type="text" [(ngModel)]="recipe.beans.shop" #shop="ngModel">
+
+    <div class="form-group">
+      <div class="with-icon">
+        <mat-icon color="primary">looks_3</mat-icon>
+        <p>味の評価を入力してください</p>
+      </div>
+      <div class="with-mat-hint">
+        <mat-form-field class="form-field">
+          <mat-label>評価</mat-label>
+          <mat-select required disableRipple name="rating" [(ngModel)]="recipe.evaluation.rating">
+            <mat-option></mat-option>
+            <mat-option *ngFor="let rating of ratings" [value]="rating">{{rating}}</mat-option>
+          </mat-select>
+          <mat-hint>5段階評価</mat-hint>
+        </mat-form-field>
+      </div>
+      <div>
+        <mat-form-field class="form-field">
+          <mat-label>苦味と酸味のバランス</mat-label>
+          <mat-select disableRipple name="taste" [(ngModel)]="recipe.evaluation.taste">
+            <mat-option></mat-option>
+            <mat-option *ngFor="let taste of tastes; index as i" [value]="i + 1">{{taste}}</mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div>
+      <div class="with-mat-hint">
+        <mat-form-field class="form-field">
+          <mat-label>コク</mat-label>
+          <mat-select disableRipple name="density" [(ngModel)]="recipe.evaluation.density">
+            <mat-option></mat-option>
+            <mat-option *ngFor="let rating of ratings" [value]="rating">{{rating}}</mat-option>
+          </mat-select>
+          <mat-hint>数値が高いほど、コクが深い</mat-hint>
+        </mat-form-field>
+      </div>
+      <div class="with-mat-hint">
+        <mat-form-field class="form-field">
+          <mat-label>雑味</mat-label>
+          <mat-select disableRipple name="harshness" [(ngModel)]="recipe.evaluation.harshness">
+            <mat-option></mat-option>
+            <mat-option [value]="0">雑味なし</mat-option>
+            <mat-option *ngFor="let rating of ratings" [value]="rating">{{rating}}</mat-option>
+          </mat-select>
+          <mat-hint>数値が高いほど、雑味が含まれている</mat-hint>
+        </mat-form-field>
+      </div>
+      <div>
+        <mat-form-field class="form-field">
+          <mat-label>コメント</mat-label>
+          <textarea matInput id="comment" name="comment" [(ngModel)]="recipe.evaluation.comment"></textarea>
+        </mat-form-field>
+      </div>
     </div>
-    <div>
-      <label for="roast">ロースト</label>
-      <input id="roast" name="roast_type" type="text" [(ngModel)]="recipe.beans.roast" #roast="ngModel">
+
+    <div class="form-group">
+      <div class="with-icon">
+        <mat-icon color="primary">looks_4</mat-icon>
+        <p>レシピ名を入力してください</p>
+      </div>
+      <div>
+        <mat-form-field class="form-field">
+          <mat-label>レシピ名</mat-label>
+          <input matInput required id="name" name="name" type="text" [(ngModel)]="recipe.name">
+          <button mat-button *ngIf="recipe.name" matSuffix mat-icon-button aria-label="Clear" (click)="recipe.name=''">
+            <mat-icon>close</mat-icon>
+          </button>
+        </mat-form-field>
+      </div>
+      <div>
+        <mat-form-field class="form-field">
+          <mat-label>メモ</mat-label>
+          <textarea matInput id="memo" name="memo" [(ngModel)]="recipe.memo"></textarea>
+        </mat-form-field>
+      </div>
     </div>
-    <div>
-      <label for="grain">挽き目（粒度）</label>
-      <input id="grain" name="grain_size" type="text" [(ngModel)]="recipe.beans.grain" #grain="ngModel">
-    </div>
-    <div>
-      <label for="beansAmount">豆の量（g）</label>
-      <input id="beansAmount" name="beansAmount" type="text" [(ngModel)]="recipe.style.beansAmount" #beansAmount="ngModel">
-    </div>
-    <div>
-      <label for="steamTime">蒸らし時間</label>
-      <input id="steamTime" name="steamTime" type="text" [(ngModel)]="recipe.style.steamTime" #steamTime="ngModel">
-    </div>
-    <div>
-      <label for="extractionTime">抽出時間</label>
-      <input id="extractionTime" name="extractionTime" type="text" [(ngModel)]="recipe.style.extractionTime" #extractionTime="ngModel">
-    </div>
-    <div>
-      <label for="productAmount">コーヒーの量（ml）</label>
-      <input id="productAmount" name="productAmount" type="text" [(ngModel)]="recipe.style.productAmount" #productAmount="ngModel">
-    </div>
-    <div>
-      <label for="memo">メモ</label>
-      <textarea id="memo" name="memo" type="text" [(ngModel)]="recipe.memo" #memo="ngModel"></textarea>
-    </div>
+
     <div class="submit-container">
-      <input type="submit" value="登録" [disabled]="myForm.invalid">
+      <button mat-flat-button type="submit" color="primary" [disabled]="myForm.invalid">登録</button>
     </div>
+
   </form>
 
   <!-- 豆知識 -->
-  <app-tips><</app-tips>
+  <!-- <app-tips><</app-tips> -->
 
   <!-- 背景の雲（Angularのテンプレートのものをそのまま利用）-->
-  <svg id="clouds" alt="Gray Clouds Background" xmlns="http://www.w3.org/2000/svg" width="2611.084" height="485.677" viewBox="0 0 2611.084 485.677">
+  <!-- <svg id="clouds" alt="Gray Clouds Background" xmlns="http://www.w3.org/2000/svg" width="2611.084" height="485.677" viewBox="0 0 2611.084 485.677">
     <path id="Path_39" data-name="Path 39" d="M2379.709,863.793c10-93-77-171-168-149-52-114-225-105-264,15-75,3-140,59-152,133-30,2.83-66.725,9.829-93.5,26.25-26.771-16.421-63.5-23.42-93.5-26.25-12-74-77-130-152-133-39-120-212-129-264-15-54.084-13.075-106.753,9.173-138.488,48.9-31.734-39.726-84.4-61.974-138.487-48.9-52-114-225-105-264,15a162.027,162.027,0,0,0-103.147,43.044c-30.633-45.365-87.1-72.091-145.206-58.044-52-114-225-105-264,15-75,3-140,59-152,133-53,5-127,23-130,83-2,42,35,72,70,86,49,20,106,18,157,5a165.625,165.625,0,0,0,120,0c47,94,178,113,251,33,61.112,8.015,113.854-5.72,150.492-29.764a165.62,165.62,0,0,0,110.861-3.236c47,94,178,113,251,33,31.385,4.116,60.563,2.495,86.487-3.311,25.924,5.806,55.1,7.427,86.488,3.311,73,80,204,61,251-33a165.625,165.625,0,0,0,120,0c51,13,108,15,157-5a147.188,147.188,0,0,0,33.5-18.694,147.217,147.217,0,0,0,33.5,18.694c49,20,106,18,157,5a165.625,165.625,0,0,0,120,0c47,94,178,113,251,33C2446.709,1093.793,2554.709,922.793,2379.709,863.793Z" transform="translate(142.69 -634.312)" fill="#eee"/>
-  </svg>
+  </svg> -->
 
 </div>

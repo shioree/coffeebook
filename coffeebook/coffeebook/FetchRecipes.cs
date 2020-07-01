@@ -31,13 +31,18 @@ namespace coffeebook
                 .AddEnvironmentVariables()
                 .Build();
 
+            // コンテナを取得する
             var connectionString = config.GetConnectionString("cosmosdb-connection-string");
             var client = new CosmosClient(connectionString);
             var container = client.GetContainer("coffeebook-db", "Recipes");
 
+            // セッションIDからユーザIDを取得する
+            // var userId = req.Cookies.[];
+
             var query = container.GetItemQueryIterator<Recipe>(new QueryDefinition(
                 "select * from r where r.userId = @userId")
-                .WithParameter("@userId", "テストユーザ"));
+                .WithParameter("@userId", "test0701")); // TODO: ログインしているユーザのIDを取得して設定する
+
             List<Recipe> results = new List<Recipe>();
             while (query.HasMoreResults)
             {                

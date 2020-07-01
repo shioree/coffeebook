@@ -9,7 +9,8 @@ export class Beans {
 export class Style {
   public beansAmount: string;
   public steamTime: string;
-  public extractionTime: string;
+  public extractionTimeMinute: string;
+  public extractionTimeSecond: string;
   public productAmount: string;
 }
 
