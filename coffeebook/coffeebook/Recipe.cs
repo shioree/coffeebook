@@ -46,16 +46,16 @@ namespace coffeebook
     public partial class Evaluation
     {
         [JsonProperty("rating")]
-        public string Rating { get; set; }
+        public int Rating { get; set; }
 
         [JsonProperty("taste")]
-        public string Taste { get; set; }
+        public int Taste { get; set; }
 
         [JsonProperty("density")]
-        public string Density { get; set; }
+        public int Density { get; set; }
 
         [JsonProperty("harshness")]
-        public string Harshness { get; set; }
+        public int Harshness { get; set; }
 
         [JsonProperty("comment")]
         public string Comment { get; set; }
