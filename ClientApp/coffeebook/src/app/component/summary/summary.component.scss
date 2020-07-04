@@ -1,6 +1,10 @@
 
 @import '../../../styles.scss';
 
+.card span {
+  margin-left: 0;
+}
+
 .message {
   text-align: center;
   white-space: pre-wrap;
