@@ -12,6 +12,12 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
 import { MatExpansionModule } from '@angular/material/expansion';
 import { MatBadgeModule } from '@angular/material/badge';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
+import { MatStepperModule } from '@angular/material/stepper';
+import { MatSelectModule } from '@angular/material/select';
+import { MatProgressSpinnerModule, MatSpinner } from '@angular/material/progress-spinner';
+import { OverlayModule } from '@angular/cdk/overlay';
 
 import { AppComponent } from './component/app/app.component';
 import { RecordComponent } from './component/record/record.component';
@@ -25,6 +31,8 @@ import { SucceededComponent } from './component/succeeded/succeeded.component';
 import { RecipeComponent } from './component/recipe/recipe.component';
 
 import { HttpClientService } from './service/http-client.service';
+import { SignUpComponent } from './component/sign-up/sign-up.component';
+import { LoginComponent } from './component/login/login.component';
 
 @NgModule({
   declarations: [
@@ -37,7 +45,9 @@ import { HttpClientService } from './service/http-client.service';
     UnderConstructionComponent,
     SummaryComponent,
     SucceededComponent,
-    RecipeComponent
+    RecipeComponent,
+    SignUpComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,
@@ -50,7 +60,16 @@ import { HttpClientService } from './service/http-client.service';
     MatIconModule,
     MatButtonModule,
     MatExpansionModule,
-    MatBadgeModule
+    MatBadgeModule,
+    MatFormFieldModule,
+    MatInputModule,
+    MatStepperModule,
+    MatSelectModule,
+    MatProgressSpinnerModule,
+    OverlayModule
+  ],
+  entryComponents: [
+    MatSpinner
   ],
   providers: [
     HttpClientService

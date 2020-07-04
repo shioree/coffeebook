@@ -24,26 +24,27 @@ export class RecordService {
     private httpClient: HttpClientService
   ) { }
 
-  /* public registerRecipe(recipe: any): Observable<number> {
-    return this.httpClient.post(Const.URL_BACKEND, recipe, this.options).pipe(
+  /* public registerRecipe(recipe: any): Observable<any> {
+    // return this.httpClient.post(environment.url_api_register, recipe, this.options);
+    return this.httpClient.post(environment.url_api_register, recipe, this.options).pipe(
+      // HTTPステータスコードを戻す
       map((res: HttpResponse<any>) => res.status),
+      // エラー時もHTTPステータスコードを戻す
       catchError((err: HttpErrorResponse) => of(err.status))
     );
-  }*/
+  } */
 
-  public registerRecipe(recipe: any): Observable<any> {
-    return this.httpClient.post(environment.url_api_register, recipe, this.options);
+  public register(recipe: Recipe): Promise<any> {
+    const path = environment.url_api_register;
+    const options: any = {
+      headers: new HttpHeaders({
+        'Content-Type': 'application/json',
+        observe: 'response'
+      })
+    };
+    const httpRequest = new HttpRequest('POST', path, recipe, options);
+    return this.httpClient.request<any>(httpRequest);
   }
-
-  /*public registerRecipe(recipe: any): number {
-    let st: number;
-    this.httpClient.post(Const.URL_BACKEND, recipe, this.options).subscribe(
-      res => {
-        console.log(res.status);
-        st = res.status;
-      });
-    return st;
-  }*/
 
   public fetchRecipe(): Promise<any> {
     const path = environment.url_api_fetch;

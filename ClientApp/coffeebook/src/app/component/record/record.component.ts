@@ -1,6 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { FormBuilder } from '@angular/forms';
+import { HttpResponse } from '@angular/common/http';
+
+import { Overlay } from '@angular/cdk/overlay';
+import { ComponentPortal } from '@angular/cdk/portal';
+import { MatSpinner } from '@angular/material/progress-spinner';
 
 import { RecordService } from '../../service/record.service';
 import { Recipe } from '../../model/recipe.model';
@@ -13,6 +18,7 @@ import { Recipe } from '../../model/recipe.model';
 export class RecordComponent implements OnInit {
 
   public recipe: Recipe　= new Recipe();
+  public isSucceded = true;
 
   public roasts: Array<string> = [
     'ライトロースト',
@@ -49,10 +55,16 @@ export class RecordComponent implements OnInit {
     '苦味が非常に強い'
   ];
 
+  private overlayRef = this.overlay.create({
+    hasBackdrop: true,
+    positionStrategy: this.overlay
+      .position().global().centerHorizontally().centerVertically()
+  });
+
   constructor(
     private recordService: RecordService,
     private router: Router,
-    private formBuilder: FormBuilder
+    private overlay: Overlay
   ) {
   }
 
@@ -60,18 +72,42 @@ export class RecordComponent implements OnInit {
   }
 
   public submit() {
-    this.recordService.registerRecipe(this.recipe).subscribe(
-      /*(res: number) => {
-        if (res === 200) {
-          console.log(res);
-          // this.router.navigate(['/record/succeede']);
-        } else {
-          console.log(res);
-          // this.router.navigate(['/under-construction']);
-        }
-      }*/
-      res => this.router.navigate(['/record/succeeded'])
-    );
+    // スピナーの表示
+    this.overlayRef.attach(new ComponentPortal(MatSpinner));
+
+    /* this.recordService.registerRecipe(this.recipe).subscribe((res: number) => {
+      // スピナーの非表示
+      this.overlayRef.detach();
+
+      console.log(res);
+
+      if (res === 200) {
+        this.router.navigate(['/record/succeeded']);
+      } else {
+        this.isSucceded = false;
+      }
+    }, (err: any) => {
+      // スピナーの非表示
+      this.overlayRef.detach();
+      this.isSucceded = false;
+    }); */
+
+    this.recordService.register(this.recipe).then((res: HttpResponse<any>) => {
+      console.log(res.status);
+
+      // スピナーの非表示
+      this.overlayRef.detach();
+
+      if (res.status === 200) {
+        this.router.navigate(['/record/succeeded']);
+      } else {
+        this.isSucceded = false;
+      }
+    }, (err: any) => {
+      // スピナーの非表示
+      this.overlayRef.detach();
+      this.isSucceded = false;
+    });
   }
 
 }

@@ -12,6 +12,11 @@
   <!-- メインコンテンツ-->
   <form id="form" #myForm="ngForm" (ngSubmit)="submit()" novalidate>
 
+    <mat-error id="error-message" *ngIf="!isSucceded">
+      レシピ登録に失敗しました。<br>
+      しばらくしてから、再度登録してください。
+    </mat-error>
+
     <div class="form-group">
       <div class="with-icon">
         <mat-icon color="primary">looks_one</mat-icon>
@@ -127,7 +132,7 @@
       <div>
         <mat-form-field class="form-field">
           <mat-label>苦味と酸味のバランス</mat-label>
-          <mat-select disableRipple name="taste" [(ngModel)]="recipe.evaluation.taste">
+          <mat-select required disableRipple name="taste" [(ngModel)]="recipe.evaluation.taste">
             <mat-option></mat-option>
             <mat-option *ngFor="let taste of tastes; index as i" [value]="i + 1">{{taste}}</mat-option>
           </mat-select>
@@ -136,7 +141,7 @@
       <div class="with-mat-hint">
         <mat-form-field class="form-field">
           <mat-label>コク</mat-label>
-          <mat-select disableRipple name="density" [(ngModel)]="recipe.evaluation.density">
+          <mat-select required disableRipple name="density" [(ngModel)]="recipe.evaluation.density">
             <mat-option></mat-option>
             <mat-option *ngFor="let rating of ratings" [value]="rating">{{rating}}</mat-option>
           </mat-select>
@@ -146,7 +151,7 @@
       <div class="with-mat-hint">
         <mat-form-field class="form-field">
           <mat-label>雑味</mat-label>
-          <mat-select disableRipple name="harshness" [(ngModel)]="recipe.evaluation.harshness">
+          <mat-select required disableRipple name="harshness" [(ngModel)]="recipe.evaluation.harshness">
             <mat-option></mat-option>
             <mat-option [value]="0">雑味なし</mat-option>
             <mat-option *ngFor="let rating of ratings" [value]="rating">{{rating}}</mat-option>
