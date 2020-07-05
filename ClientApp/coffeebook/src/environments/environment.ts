@@ -5,6 +5,9 @@
 export const environment = {
   production: false,
   url_img_base: '../../assets/img/irasutoya/',
+  url_api_sign_up: 'http://localhost:7071/api/SignUp',
+  url_api_login: 'http://localhost:7071/api/Login',
+  url_api_logout: 'http://localhost:7071/api/Logout',
   url_api_register: 'http://localhost:7071/api/RegisterRecipe',
   url_api_fetch: './assets/mock/data.json'
 };

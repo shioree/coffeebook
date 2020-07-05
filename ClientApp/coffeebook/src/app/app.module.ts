@@ -33,6 +33,7 @@ import { RecipeComponent } from './component/recipe/recipe.component';
 import { HttpClientService } from './service/http-client.service';
 import { SignUpComponent } from './component/sign-up/sign-up.component';
 import { LoginComponent } from './component/login/login.component';
+import { SignUpSucceededComponent } from './component/sign-up-succeeded/sign-up-succeeded.component';
 
 @NgModule({
   declarations: [
@@ -47,7 +48,8 @@ import { LoginComponent } from './component/login/login.component';
     SucceededComponent,
     RecipeComponent,
     SignUpComponent,
-    LoginComponent
+    LoginComponent,
+    SignUpSucceededComponent
   ],
   imports: [
     BrowserModule,
