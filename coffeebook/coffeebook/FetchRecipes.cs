@@ -31,22 +31,38 @@ namespace coffeebook
                 .AddEnvironmentVariables()
                 .Build();
 
-            // コンテナを取得する
+            // クライアントを取得する
             var connectionString = config.GetConnectionString("cosmosdb-connection-string");
             var client = new CosmosClient(connectionString);
-            var container = client.GetContainer("coffeebook-db", "Recipes");
+
+            // Sessionコンテナを取得する
+            var sessionContainer = client.GetContainer("coffeebook-db", "Session");
 
             // セッションIDからユーザIDを取得する
-            // var userId = req.Cookies.[];
+            req.HttpContext.Request.Cookies.TryGetValue("sessionId", out string sessionId);
 
-            var query = container.GetItemQueryIterator<Recipe>(new QueryDefinition(
+            var sessionQuery = sessionContainer.GetItemQueryIterator<Session>(new QueryDefinition(
+                "select * from r where r.sessionId = @sessionId")
+                .WithParameter("@sessionId", sessionId));
+
+            var sessions = new List<Session>();
+            while (sessionQuery.HasMoreResults)
+            {
+                var response = await sessionQuery.ReadNextAsync();
+                sessions.AddRange(response.ToList());
+            }
+
+            // Usersコンテナを取得する
+            var userContainer = client.GetContainer("coffeebook-db", "Recipes");
+
+            var userQuery = userContainer.GetItemQueryIterator<Recipe>(new QueryDefinition(
                 "select * from r where r.userId = @userId")
-                .WithParameter("@userId", "test0701")); // TODO: ログインしているユーザのIDを取得して設定する
+                .WithParameter("@userId", sessions[0].UserId));
 
             List<Recipe> results = new List<Recipe>();
-            while (query.HasMoreResults)
+            while (userQuery.HasMoreResults)
             {                
-                var response = await query.ReadNextAsync();
+                var response = await userQuery.ReadNextAsync();
                 results.AddRange(response.ToList());
             }
 

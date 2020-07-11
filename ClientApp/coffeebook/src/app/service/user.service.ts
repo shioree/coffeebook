@@ -16,7 +16,8 @@ export class UserService {
     headers: new HttpHeaders({
       'Content-Type': 'application/json',
       observe: 'response'
-    })
+    }),
+    withCredentials: true
   };
 
   constructor(

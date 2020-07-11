@@ -14,7 +14,8 @@ export class RecordService {
     headers: new HttpHeaders({
       'Content-Type': 'application/json',
       observe: 'response'
-    })
+    }),
+    withCredentials: true
   };
 
   constructor(

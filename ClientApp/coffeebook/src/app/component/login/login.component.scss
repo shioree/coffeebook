@@ -1,0 +1,48 @@
+@import '../../../styles.scss';
+
+#form {
+  margin-top: 1rem;
+}
+
+#error-message {
+  margin-bottom: 2rem;
+}
+
+.form-field {
+  width: 16rem;
+}
+
+.with-icon {
+  display: flex;
+  align-items: center;
+}
+
+.description {
+  margin-top: 0;
+  padding-left: 0.5rem;
+}
+
+.form-group {
+  margin-bottom: 1rem;
+}
+
+.with-mat-hint {
+  margin-bottom: 1rem;
+}
+
+textarea {
+  /* テキスト入力に十分な領域を与える */
+  height: 4rem;
+}
+
+.submit-container {
+  display: flex;
+  justify-content: center;
+  margin-top: 1rem;
+
+  button {
+    width: 16rem;
+    // background-color: #a0ccf2;
+    background-color: #BBB;
+  }
+}
