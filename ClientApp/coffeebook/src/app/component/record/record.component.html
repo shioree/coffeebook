@@ -68,7 +68,7 @@
       <div>
         <mat-form-field class="form-field">
           <mat-label>豆の量（g）</mat-label>
-          <input matInput placeholder="エチオピア" id="beansAmount" name="beansAmount" type="number" [(ngModel)]="recipe.style.beansAmount">
+          <input matInput placeholder="" id="beansAmount" name="beansAmount" type="number" [(ngModel)]="recipe.style.beansAmount">
           <button mat-button *ngIf="recipe.style.beansAmount" matSuffix mat-icon-button aria-label="Clear" (click)="recipe.style.beansAmount=''">
             <mat-icon>close</mat-icon>
           </button>
