@@ -24,8 +24,8 @@ export class BrowseComponent implements OnInit {
   ngOnInit() {
     this.recordService.fetchRecipe().then((res: HttpResponse<any>) => {
       this.recipes = res.body;
-      this.isLoading = false;
     });
+    this.isLoading = false;
   }
 
 }
