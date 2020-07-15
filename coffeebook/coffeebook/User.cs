@@ -31,11 +31,19 @@ namespace coffeebook
 
     public partial class Session
     {
+        [JsonProperty("id")]
+        public string Id { get; set; }
+
         [JsonProperty("userId")]
         public string UserId { get; set; }
 
         [JsonProperty("sessionId")]
         public string SessionId { get; set; }
+    }
+
+    public class UserConst
+    {
+        public const string sessionId = "sessionId";
     }
 
     public class UserService

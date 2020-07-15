@@ -3,8 +3,6 @@ import { NgModule } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 
-import { AppRoutingModule } from './app-routing.module';
-
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatMenuModule } from '@angular/material/menu';
@@ -19,6 +17,8 @@ import { MatSelectModule } from '@angular/material/select';
 import { MatProgressSpinnerModule, MatSpinner } from '@angular/material/progress-spinner';
 import { OverlayModule } from '@angular/cdk/overlay';
 
+import { AppRoutingModule } from './app-routing.module';
+
 import { AppComponent } from './component/app/app.component';
 import { RecordComponent } from './component/record/record.component';
 import { BrowseComponent } from './component/browse/browse.component';
@@ -29,11 +29,12 @@ import { UnderConstructionComponent } from './component/under-construction/under
 import { SummaryComponent } from './component/summary/summary.component';
 import { SucceededComponent } from './component/succeeded/succeeded.component';
 import { RecipeComponent } from './component/recipe/recipe.component';
-
-import { HttpClientService } from './service/http-client.service';
 import { SignUpComponent } from './component/sign-up/sign-up.component';
 import { LoginComponent } from './component/login/login.component';
 import { SignUpSucceededComponent } from './component/sign-up-succeeded/sign-up-succeeded.component';
+
+import { HttpClientService } from './service/http-client.service';
+import { UserService } from './service/user.service';
 
 @NgModule({
   declarations: [
@@ -74,7 +75,8 @@ import { SignUpSucceededComponent } from './component/sign-up-succeeded/sign-up-
     MatSpinner
   ],
   providers: [
-    HttpClientService
+    HttpClientService,
+    UserService
   ],
   bootstrap: [AppComponent]
 })

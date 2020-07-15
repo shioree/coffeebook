@@ -1,28 +1,3 @@
-<!-- <div class="toolbar" role="banner">
-  <div class="title">
-    <h1 routerLink="/main">Coffeebook</h1>
-  </div>
-  <div class="spacer"></div>
-  <div>
-    <nav id="global_navigation">
-      <ul>
-        <li>
-          <a routerLink="/under-construction">会員登録</a>
-        </li>
-        <li>
-          <a routerLink="/under-construction">ログイン</a>
-        </li>
-      </ul>
-    </nav>
-  </div>
-  <div class="button">
-    <input type="button" value="ログイン" onclick="">
-  </div>
-  <div class="button">
-    <input type="button" value="会員登録" onclick="">
-  </div>
-</div> -->
-
 <mat-toolbar color="primary">
   <h1 class="title" routerLink="/main">Coffeebook</h1>
   <span class="spacer"></span>
@@ -32,8 +7,13 @@
   <mat-menu #menu="matMenu" xPosition="before">
     <button mat-menu-item [matMenuTriggerFor]="record">しるす</button>
     <button mat-menu-item [matMenuTriggerFor]="browse">さがす</button>
-    <button mat-menu-item routerLink="/login">ログイン</button>
-    <button mat-menu-item routerLink="/sign-up">会員登録</button>
+    <ng-container *ngIf="this.isLoggedIn; else elseContent">
+      <button mat-menu-item (click)="logout()">ログアウト</button>
+    </ng-container>
+    <ng-template #elseContent>
+      <button mat-menu-item routerLink="/login">ログイン</button>
+      <button mat-menu-item routerLink="/sign-up">会員登録</button>
+    </ng-template>
   </mat-menu>
   <mat-menu #record="matMenu" xPosition="before">
     <button mat-menu-item routerLink="/record/drip">ドリップ</button>

@@ -78,10 +78,11 @@ namespace coffeebook
                 // Cookie‚ÖƒZƒbƒVƒ‡ƒ“î•ñ‚ğŠi”[
                 //var cookieOption = new CookieOptions()
                 //{
-                //    Secure = true
+                //    Secure = true,
+                //    SameSite = SameSiteMode.None
                 //};
                 //req.HttpContext.Response.Cookies.Append("sessionId", sessionId, cookieOption);
-                req.HttpContext.Response.Cookies.Append("sessionId", sessionId);
+                req.HttpContext.Response.Cookies.Append(UserConst.sessionId, sessionId);
 
                 return new OkResult();
             }

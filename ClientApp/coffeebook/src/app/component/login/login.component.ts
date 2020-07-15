@@ -25,7 +25,7 @@ export class LoginComponent implements OnInit {
   });
 
   constructor(
-    private userService: UserService,
+    public userService: UserService,
     private router: Router,
     private overlay: Overlay
   ) { }
@@ -43,6 +43,7 @@ export class LoginComponent implements OnInit {
 
       if (res.status === 200) {
         this.router.navigate(['/main']);
+        this.userService.onNotifyLoginStatusChanged(true);
       } else {
         this.isSucceded = false;
       }
