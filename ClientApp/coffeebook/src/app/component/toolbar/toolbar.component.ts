@@ -58,6 +58,8 @@ export class ToolbarComponent implements OnInit, OnDestroy {
         this.userService.onNotifyLoginStatusChanged(false);
       } else {
         // TODO: エラー処理
+        // スピナーの非表示
+        this.overlayRef.detach();
       }
     }, (err: any) => {
       // スピナーの非表示

@@ -13,9 +13,9 @@ export class RecordService {
   private options: any = {
     headers: new HttpHeaders({
       'Content-Type': 'application/json',
-      observe: 'response'
+      observe: 'response' // レスポンスのステータス参照のため
     }),
-    withCredentials: true
+    withCredentials: true // Cookie利用のため
   };
 
   constructor(
