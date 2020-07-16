@@ -1,10 +1,10 @@
-﻿using Newtonsoft.Json;
-using Microsoft.AspNetCore.Http;
-using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Threading.Tasks;
 using System.Security.Cryptography;
+using Microsoft.Azure.Cosmos;
+using Newtonsoft.Json;
 
 namespace coffeebook
 {
@@ -83,6 +83,30 @@ namespace coffeebook
         public static string GenerateSessionId()
         {
             return Encoding.UTF8.GetString(GenerateSalt());
+        }
+
+        /// <summary>
+        /// セッションIDからユーザーIDを取得
+        /// </summary>
+        /// <returns>セッションID</returns>
+        public static async Task<string> GetUserIdFromSessionContainer(string connectionString, string sessionId)
+        {
+            // コンテナを取得する
+            var client = new CosmosClient(connectionString);
+            var sessionContainer = client.GetContainer("coffeebook-db", "Session");
+
+            var sessionQuery = sessionContainer.GetItemQueryIterator<Session>(new QueryDefinition(
+                "select * from r where r.sessionId = @sessionId")
+                .WithParameter("@sessionId", sessionId));
+
+            var sessions = new List<Session>();
+            while (sessionQuery.HasMoreResults)
+            {
+                var response = await sessionQuery.ReadNextAsync();
+                sessions.AddRange(response.ToList());
+            }
+
+            return sessions[0].UserId;
         }
     }
 }

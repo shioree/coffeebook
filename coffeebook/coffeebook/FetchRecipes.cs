@@ -1,17 +1,12 @@
-using System;
-using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Collections.Generic;
-using Microsoft.AspNetCore.Mvc;
 using Microsoft.Azure.WebJobs;
 using Microsoft.Azure.WebJobs.Extensions.Http;
 using Microsoft.Azure.Cosmos;
-using Microsoft.Azure.Cosmos.Fluent;
 using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Configuration;
-using Newtonsoft.Json;
 
 namespace coffeebook
 {
@@ -25,44 +20,28 @@ namespace coffeebook
         {
             log.LogInformation("レシピ取得処理を実行します");
 
+            // 設定情報の取得
             var config = new ConfigurationBuilder()
                 .SetBasePath(context.FunctionAppDirectory)
                 .AddJsonFile("local.settings.json", optional: true, reloadOnChange: true)
                 .AddEnvironmentVariables()
                 .Build();
-
-            // クライアントを取得する
             var connectionString = config.GetConnectionString("cosmosdb-connection-string");
-            var client = new CosmosClient(connectionString);
 
-            // Sessionコンテナを取得する
-            var sessionContainer = client.GetContainer("coffeebook-db", "Session");
-
-            // セッションIDからユーザIDを取得する
             req.HttpContext.Request.Cookies.TryGetValue("sessionId", out string sessionId);
 
-            var sessionQuery = sessionContainer.GetItemQueryIterator<Session>(new QueryDefinition(
-                "select * from r where r.sessionId = @sessionId")
-                .WithParameter("@sessionId", sessionId));
+            // ユーザーに紐づくレシピの取得
+            var client = new CosmosClient(connectionString);
+            var recipeContainer = client.GetContainer("coffeebook-db", "Recipes");
 
-            var sessions = new List<Session>();
-            while (sessionQuery.HasMoreResults)
-            {
-                var response = await sessionQuery.ReadNextAsync();
-                sessions.AddRange(response.ToList());
-            }
-
-            // Usersコンテナを取得する
-            var userContainer = client.GetContainer("coffeebook-db", "Recipes");
-
-            var userQuery = userContainer.GetItemQueryIterator<Recipe>(new QueryDefinition(
+            var recipeQuery = recipeContainer.GetItemQueryIterator<Recipe>(new QueryDefinition(
                 "select * from r where r.userId = @userId")
-                .WithParameter("@userId", sessions[0].UserId));
+                .WithParameter("@userId", await UserService.GetUserIdFromSessionContainer(connectionString, sessionId)));
 
             List<Recipe> results = new List<Recipe>();
-            while (userQuery.HasMoreResults)
+            while (recipeQuery.HasMoreResults)
             {                
-                var response = await userQuery.ReadNextAsync();
+                var response = await recipeQuery.ReadNextAsync();
                 results.AddRange(response.ToList());
             }
 

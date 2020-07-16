@@ -1,4 +1,3 @@
-using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Collections.Generic;
@@ -9,8 +8,6 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Azure.WebJobs;
 using Microsoft.Azure.WebJobs.Extensions.Http;
 using Microsoft.Azure.Cosmos;
-using Newtonsoft.Json;
-using System;
 
 namespace coffeebook
 {
