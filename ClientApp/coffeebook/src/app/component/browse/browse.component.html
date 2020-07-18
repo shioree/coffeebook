@@ -58,7 +58,7 @@
   <!-- メインコンテンツ -->
   <div class="recipe-container" *ngIf="recipes.length >= 1">
     <div *ngFor="let recipe of recipesNarrowedDown; even as even;">
-      <app-recipe [recipe]="recipe" [even]="even"></app-recipe>
+      <app-recipe [recipe]="recipe" [even]="even" (delete)="onDelete($event)"></app-recipe>
     </div>
   </div>
 

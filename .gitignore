@@ -1,0 +1,5 @@
+/coffeebook/coffeebook/Properties/PublishProfiles/.gitignore
+/coffeebook/.vs/coffeebook/v16/Server/sqlite3/storage.ide-wal
+/coffeebook/.vs/coffeebook/v16/Server/sqlite3/storage.ide-shm
+/coffeebook/.vs/coffeebook/v16/TestStore/0/*.testlog
+/coffeebook/.vs/coffeebook/v16/TestStore/0/*.manifest

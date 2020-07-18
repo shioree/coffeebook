@@ -88,7 +88,7 @@ namespace coffeebook
         /// <summary>
         /// セッションIDからユーザーIDを取得
         /// </summary>
-        /// <returns>セッションID</returns>
+        /// <returns>ユーザーID</returns>
         public static async Task<string> GetUserIdFromSessionContainer(string connectionString, string sessionId)
         {
             // コンテナを取得する

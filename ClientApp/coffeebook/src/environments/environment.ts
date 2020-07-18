@@ -9,7 +9,8 @@ export const environment = {
   url_api_login: 'http://localhost:7071/api/Login',
   url_api_logout: 'http://localhost:7071/api/Logout',
   url_api_register: 'http://localhost:7071/api/RegisterRecipe',
-  url_api_fetch: './assets/mock/data.json'
+  url_api_fetch: './assets/mock/data.json',
+  url_api_delete: 'http://localhost:7071/api/DeleteRecipe'
 };
 
 /*

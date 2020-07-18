@@ -1,14 +1,12 @@
-﻿using System;
-using System.Collections.Generic;
-
-using System.Globalization;
-using Newtonsoft.Json;
-using Newtonsoft.Json.Converters;
+﻿using Newtonsoft.Json;
 
 namespace coffeebook
 {
     public partial class Recipe
     {
+        [JsonProperty("id")]
+        public string Id { get; set; }
+
         [JsonProperty("userId")]
         public string UserId { get; set; }
 
@@ -77,5 +75,11 @@ namespace coffeebook
 
         [JsonProperty("productAmount")]
         public string ProductAmount { get; set; }
+    }
+
+    public partial class DeleteModel
+    {
+        [JsonProperty("id")]
+        public string Id { get; set; }
     }
 }

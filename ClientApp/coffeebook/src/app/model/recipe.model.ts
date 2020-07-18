@@ -31,6 +31,7 @@ export class Evaluation {
 }
 
 export class Recipe {
+  public id: string;
   public name: string;
   public beans: Beans;
   public style: Style;
@@ -88,4 +89,12 @@ export class SearchModels {
   ];
   public readonly tastes = tastesExpressions;
   public readonly shop: string = '';
+}
+
+export class DeleteModel {
+  public id: string;
+
+  constructor(id: string) {
+    this.id = id;
+  }
 }

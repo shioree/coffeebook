@@ -6,7 +6,7 @@ import { Overlay } from '@angular/cdk/overlay';
 import { ComponentPortal } from '@angular/cdk/portal';
 import { MatSpinner } from '@angular/material/progress-spinner';
 
-import { RecordService } from '../../service/record.service';
+import { RecipeService } from '../../service/recipe.service';
 import { Recipe, FormModels } from '../../model/recipe.model';
 
 @Component({
@@ -27,7 +27,7 @@ export class RecordComponent implements OnInit {
   });
 
   constructor(
-    private recordService: RecordService,
+    private recordService: RecipeService,
     private router: Router,
     private overlay: Overlay
   ) {

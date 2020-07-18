@@ -35,6 +35,7 @@ import { SignUpSucceededComponent } from './component/sign-up-succeeded/sign-up-
 
 import { HttpClientService } from './service/http-client.service';
 import { UserService } from './service/user.service';
+import { RecipeService } from './service/recipe.service';
 
 @NgModule({
   declarations: [
@@ -76,7 +77,8 @@ import { UserService } from './service/user.service';
   ],
   providers: [
     HttpClientService,
-    UserService
+    UserService,
+    RecipeService
   ],
   bootstrap: [AppComponent]
 })

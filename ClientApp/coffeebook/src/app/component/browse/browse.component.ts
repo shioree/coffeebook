@@ -1,8 +1,12 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpHeaders, HttpRequest, HttpResponse, HttpErrorResponse } from '@angular/common/http';
 
-import { RecordService } from '../../service/record.service';
-import { Recipe, SearchConditions, SearchModels } from '../../model/recipe.model';
+import { Overlay } from '@angular/cdk/overlay';
+import { ComponentPortal } from '@angular/cdk/portal';
+import { MatSpinner } from '@angular/material/progress-spinner';
+
+import { RecipeService } from '../../service/recipe.service';
+import { Recipe, SearchConditions, SearchModels, DeleteModel } from '../../model/recipe.model';
 
 @Component({
   selector: 'app-browse',
@@ -18,8 +22,15 @@ export class BrowseComponent implements OnInit {
   public isLoading = true;
   public isSearchOpen = false;
 
+  private overlayRef = this.overlay.create({
+    hasBackdrop: true,
+    positionStrategy: this.overlay
+      .position().global().centerHorizontally().centerVertically()
+  });
+
   constructor(
-    private recordService: RecordService
+    private recordService: RecipeService,
+    private overlay: Overlay
   ) {
     // this.recipes = new Array<Recipe>();
     // this.recipesNarrowedDown = new Array<Recipe>();
@@ -40,15 +51,38 @@ export class BrowseComponent implements OnInit {
   public narrowDown() {
     this.recipesNarrowedDown = this.recipes;
     if (this.conditions.rating !== 0) {
-      this.recipesNarrowedDown = this.recipesNarrowedDown.filter(word => word.evaluation.rating >= this.conditions.rating);
+      this.recipesNarrowedDown = this.recipesNarrowedDown.filter(recipe => recipe.evaluation.rating >= this.conditions.rating);
     }
     if (this.conditions.taste !== 0) {
-      this.recipesNarrowedDown = this.recipesNarrowedDown.filter(word => word.evaluation.taste === this.conditions.taste);
+      this.recipesNarrowedDown = this.recipesNarrowedDown.filter(recipe => recipe.evaluation.taste === this.conditions.taste);
     }
     if (this.conditions.shop !== '') {
-      this.recipesNarrowedDown = this.recipesNarrowedDown.filter(word => word.beans.shop === this.conditions.shop);
+      this.recipesNarrowedDown = this.recipesNarrowedDown.filter(recipe => recipe.beans.shop === this.conditions.shop);
     }
     this.isSearchOpen = false;
+  }
+
+  public onDelete(id: string) {
+    // スピナーの表示
+    this.overlayRef.attach(new ComponentPortal(MatSpinner));
+
+    const deleteModel = new DeleteModel(id);
+
+    this.recordService.delete(deleteModel).then((res: HttpResponse<any>) => {
+      // スピナーの非表示
+      this.overlayRef.detach();
+
+      if (res.status === 200) {
+        this.recipes = this.recipes.filter(recipe => recipe.id !== deleteModel.id);
+        this.recipesNarrowedDown = this.recipesNarrowedDown.filter(recipe => recipe.id !== deleteModel.id);
+      } else {
+        // this.isSucceded = false;
+      }
+    }, (err: any) => {
+      // スピナーの非表示
+      this.overlayRef.detach();
+      // this.isSucceded = false;
+    });
   }
 
 }
