@@ -42,7 +42,7 @@
           <mat-label>ロースト</mat-label>
           <mat-select disableRipple name="roast" [(ngModel)]="recipe.beans.roast">
             <mat-option></mat-option>
-            <mat-option *ngFor="let roast of roasts" [value]="roast">{{roast}}</mat-option>
+            <mat-option *ngFor="let roast of formModels.roasts" [value]="roast">{{roast}}</mat-option>
           </mat-select>
         </mat-form-field>
       </div>
@@ -51,7 +51,7 @@
           <mat-label>挽き目</mat-label>
           <mat-select disableRipple name="grain" [(ngModel)]="recipe.beans.grain">
             <mat-option></mat-option>
-            <mat-option *ngFor="let grain of grains" [value]="grain">{{grain}}</mat-option>
+            <mat-option *ngFor="let grain of formModels.grains" [value]="grain">{{grain}}</mat-option>
           </mat-select>
         </mat-form-field>
       </div>
@@ -121,7 +121,7 @@
           <mat-label>評価</mat-label>
           <mat-select required disableRipple name="rating" [(ngModel)]="recipe.evaluation.rating">
             <mat-option></mat-option>
-            <mat-option *ngFor="let rating of ratings" [value]="rating">{{rating}}</mat-option>
+            <mat-option *ngFor="let rating of formModels.ratings" [value]="rating">{{rating}}</mat-option>
           </mat-select>
           <mat-hint>5段階評価</mat-hint>
         </mat-form-field>
@@ -131,7 +131,7 @@
           <mat-label>苦味と酸味のバランス</mat-label>
           <mat-select required disableRipple name="taste" [(ngModel)]="recipe.evaluation.taste">
             <mat-option></mat-option>
-            <mat-option *ngFor="let taste of tastes; index as i" [value]="i + 1">{{taste}}</mat-option>
+            <mat-option *ngFor="let taste of formModels.tastes; index as i" [value]="i + 1">{{taste}}</mat-option>
           </mat-select>
         </mat-form-field>
       </div>
@@ -140,7 +140,7 @@
           <mat-label>コク</mat-label>
           <mat-select required disableRipple name="density" [(ngModel)]="recipe.evaluation.density">
             <mat-option></mat-option>
-            <mat-option *ngFor="let rating of ratings" [value]="rating">{{rating}}</mat-option>
+            <mat-option *ngFor="let rating of formModels.ratings" [value]="rating">{{rating}}</mat-option>
           </mat-select>
           <mat-hint>数値が高いほど、コクが深い</mat-hint>
         </mat-form-field>
@@ -151,7 +151,7 @@
           <mat-select required disableRipple name="harshness" [(ngModel)]="recipe.evaluation.harshness">
             <mat-option></mat-option>
             <mat-option [value]="0">雑味なし</mat-option>
-            <mat-option *ngFor="let rating of ratings" [value]="rating">{{rating}}</mat-option>
+            <mat-option *ngFor="let rating of formModels.ratings" [value]="rating">{{rating}}</mat-option>
           </mat-select>
           <mat-hint>数値が高いほど、雑味が含まれている</mat-hint>
         </mat-form-field>

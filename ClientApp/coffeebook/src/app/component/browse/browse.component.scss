@@ -8,6 +8,20 @@
   padding: 0;
 }
 
+.submit-container {
+  display: flex;
+  justify-content: flex-end;
+}
+
+mat-expansion-panel {
+  width: 16rem;
+  margin-top: 0.5rem;
+
+  mat-panel-title {
+    color: #888;
+  }
+}
+
 // app-tips {
   // position: fixed;
   // bottom: 70px;

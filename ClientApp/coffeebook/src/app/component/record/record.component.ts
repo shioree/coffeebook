@@ -7,7 +7,7 @@ import { ComponentPortal } from '@angular/cdk/portal';
 import { MatSpinner } from '@angular/material/progress-spinner';
 
 import { RecordService } from '../../service/record.service';
-import { Recipe } from '../../model/recipe.model';
+import { Recipe, FormModels } from '../../model/recipe.model';
 
 @Component({
   selector: 'app-record',
@@ -17,42 +17,8 @@ import { Recipe } from '../../model/recipe.model';
 export class RecordComponent implements OnInit {
 
   public recipe: Recipe　= new Recipe();
+  public formModels = new FormModels();
   public isSucceded = true;
-
-  public roasts: Array<string> = [
-    'ライトロースト',
-    'シナモンロースト',
-    'ミディアムロースト',
-    'ハイロースト',
-    'シティロースト',
-    'ハイシティロースト',
-    'フレンチロースト',
-    'イタリアンロースト'
-  ];
-
-  public grains: Array<string> = [
-    '極細挽き',
-    '細挽き',
-    '中細挽き',
-    '中挽き',
-    '粗挽き'
-  ];
-
-  public ratings: Array<number> = [
-    1,
-    2,
-    3,
-    4,
-    5
-  ];
-
-  public tastes: Array<string> = [
-    '酸味が非常に強い',
-    '酸味が強い',
-    'バランスの取れた味わい',
-    '苦味が強い',
-    '苦味が非常に強い'
-  ];
 
   private overlayRef = this.overlay.create({
     hasBackdrop: true,

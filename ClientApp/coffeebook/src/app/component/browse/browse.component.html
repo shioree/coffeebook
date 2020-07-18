@@ -6,21 +6,58 @@
     summary: '登録したコーヒーのレシピを閲覧できます。'
   }"></app-summary>
 
-  <!-- ロード中表示-->
+  <!-- ロード中表示 -->
   <ng-container *ngIf="isLoading === true">
     <p>レシピを取得しています……</p>
   </ng-container>
 
-  <!-- 取得結果が0件の場合-->
+  <!-- 取得結果が0件の場合 -->
   <ng-container *ngIf="isLoading === false">
     <div *ngIf="recipes.length === 0">
       <p>表示するレシピがありません</p>
     </div>
   </ng-container>
 
-  <!-- メインコンテンツ-->
+  <!-- 検索条件入力欄 -->
+  <mat-expansion-panel>
+    <mat-expansion-panel-header>
+      <mat-panel-title>
+        検索条件を変更する
+      </mat-panel-title>
+    </mat-expansion-panel-header>
+    <form id="form" #myForm="ngForm" (ngSubmit)="narrowDown()" novalidate>
+      <div class="form-group">
+        <mat-form-field class="form-field">
+          <mat-label>評価</mat-label>
+          <mat-select disableRipple name="rating" [(ngModel)]="conditions.rating">
+            <mat-option [value]="0"></mat-option>
+            <mat-option *ngFor="let rating of searchModels.ratings; index as i" [value]="i + 1">{{rating}}</mat-option>
+          </mat-select>
+        </mat-form-field>
+        <mat-form-field class="form-field">
+          <mat-label>苦味と酸味のバランス</mat-label>
+          <mat-select disableRipple name="taste" [(ngModel)]="conditions.taste">
+            <mat-option [value]="0"></mat-option>
+            <mat-option *ngFor="let taste of searchModels.tastes; index as i" [value]="i + 1">{{taste}}</mat-option>
+          </mat-select>
+        </mat-form-field>
+        <mat-form-field class="form-field">
+          <mat-label>購入した店舗</mat-label>
+          <input matInput placeholder="" id="shop" name="shop" type="text" [(ngModel)]="conditions.shop">
+          <button mat-button *ngIf="conditions.shop" matSuffix mat-icon-button aria-label="Clear" (click)="conditions.shop=''">
+            <mat-icon>close</mat-icon>
+          </button>
+        </mat-form-field>
+      </div>
+      <div class="submit-container">
+        <button mat-flat-button type="submit" color="primary" [disabled]="myForm.invalid">検索</button>
+      </div>
+    </form>
+  </mat-expansion-panel>
+
+  <!-- メインコンテンツ -->
   <div class="recipe-container" *ngIf="recipes.length >= 1">
-    <div *ngFor="let recipe of recipes; even as even;">
+    <div *ngFor="let recipe of recipesNarrowedDown; even as even;">
       <app-recipe [recipe]="recipe" [even]="even"></app-recipe>
     </div>
   </div>
