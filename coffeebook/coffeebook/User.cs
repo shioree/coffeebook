@@ -93,7 +93,7 @@ namespace coffeebook
         {
             // コンテナを取得する
             var client = new CosmosClient(connectionString);
-            var sessionContainer = client.GetContainer("coffeebook-db", "Session");
+            var sessionContainer = client.GetContainer(Consts.COFFEEBOOK_DB, Consts.SESSION_CONTAINER);
 
             var sessionQuery = sessionContainer.GetItemQueryIterator<Session>(new QueryDefinition(
                 "select * from r where r.sessionId = @sessionId")

@@ -30,9 +30,9 @@ namespace coffeebook
             req.HttpContext.Request.Cookies.TryGetValue("sessionId", out string sessionId);
 
             // ƒRƒ“ƒeƒi‚ðŽæ“¾‚·‚é
-            var connectionString = config.GetConnectionString("cosmosdb-connection-string");
+            var connectionString = config.GetConnectionString(Consts.COSMOSDB_CONNECTION_STRING);
             var client = new CosmosClient(connectionString);
-            var container = client.GetContainer("coffeebook-db", "Session");
+            var container = client.GetContainer(Consts.COFFEEBOOK_DB, Consts.SESSION_CONTAINER);
 
             var query = container.GetItemQueryIterator<Session>(new QueryDefinition(
                 "select * from r where r.sessionId = @sessionId")

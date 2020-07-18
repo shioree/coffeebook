@@ -16,9 +16,9 @@ namespace coffeebook
         public static async Task<IActionResult> Run(
             [HttpTrigger(AuthorizationLevel.Function, "get", "post", Route = null)] HttpRequest req,
             [CosmosDB(
-                databaseName: "coffeebook-db",
-                collectionName: "Recipes",
-                ConnectionStringSetting = "cosmosdb-connection-string")] IAsyncCollector<Recipe> recipeOut,
+                databaseName: Consts.COFFEEBOOK_DB,
+                collectionName: Consts.RECIPES_CONTAINER,
+                ConnectionStringSetting = Consts.COSMOSDB_CONNECTION_STRING)] IAsyncCollector<Recipe> recipeOut,
             ILogger log,
             ExecutionContext context)
         {
@@ -32,9 +32,9 @@ namespace coffeebook
                     .AddJsonFile("local.settings.json", optional: true, reloadOnChange: true)
                     .AddEnvironmentVariables()
                     .Build();
-                var connectionString = config.GetConnectionString("cosmosdb-connection-string");
+                var connectionString = config.GetConnectionString(Consts.COSMOSDB_CONNECTION_STRING);
 
-                req.HttpContext.Request.Cookies.TryGetValue("sessionId", out string sessionId);
+                req.HttpContext.Request.Cookies.TryGetValue(Consts.SESSION_ID_COOKIE, out string sessionId);
 
                 string requestBody = await new StreamReader(req.Body).ReadToEndAsync();
                 dynamic recipeIn = JsonConvert.DeserializeObject(requestBody, typeof(Recipe));

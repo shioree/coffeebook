@@ -21,9 +21,9 @@ namespace coffeebook
         public static async Task<IActionResult> Run(
             [HttpTrigger(AuthorizationLevel.Function, "get", "post", Route = null)] HttpRequest req,
             [CosmosDB(
-                databaseName: "coffeebook-db",
-                collectionName: "Session",
-                ConnectionStringSetting = "cosmosdb-connection-string")] IAsyncCollector<Session> sessionOut,
+                databaseName: Consts.COFFEEBOOK_DB,
+                collectionName: Consts.SESSION_CONTAINER,
+                ConnectionStringSetting = Consts.COSMOSDB_CONNECTION_STRING)] IAsyncCollector<Session> sessionOut,
             ILogger log,
             ExecutionContext context)
         {
@@ -41,9 +41,9 @@ namespace coffeebook
                 .Build();
 
             // コンテナを取得する
-            var connectionString = config.GetConnectionString("cosmosdb-connection-string");
+            var connectionString = config.GetConnectionString(Consts.COSMOSDB_CONNECTION_STRING);
             var client = new CosmosClient(connectionString);
-            var usersContainer = client.GetContainer("coffeebook-db", "Users");
+            var usersContainer = client.GetContainer(Consts.COFFEEBOOK_DB, Consts.USERS_CONTAINER);
 
             var query = usersContainer.GetItemQueryIterator<User>(new QueryDefinition(
                 "select * from r where r.userId = @userId")
@@ -81,7 +81,7 @@ namespace coffeebook
                 //    Secure = true,
                 //    SameSite = SameSiteMode.None
                 //};
-                //req.HttpContext.Response.Cookies.Append("sessionId", sessionId, cookieOption);
+                //req.HttpContext.Response.Cookies.Append("sessionId", sessionId, cookieOption); // フロントエンドで上手く扱えていないため、保留中
                 req.HttpContext.Response.Cookies.Append(UserConst.sessionId, sessionId);
 
                 return new OkResult();

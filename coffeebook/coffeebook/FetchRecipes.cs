@@ -26,13 +26,13 @@ namespace coffeebook
                 .AddJsonFile("local.settings.json", optional: true, reloadOnChange: true)
                 .AddEnvironmentVariables()
                 .Build();
-            var connectionString = config.GetConnectionString("cosmosdb-connection-string");
+            var connectionString = config.GetConnectionString(Consts.COSMOSDB_CONNECTION_STRING);
 
-            req.HttpContext.Request.Cookies.TryGetValue("sessionId", out string sessionId);
+            req.HttpContext.Request.Cookies.TryGetValue(Consts.SESSION_ID_COOKIE, out string sessionId);
 
             // ユーザーに紐づくレシピの取得
             var client = new CosmosClient(connectionString);
-            var recipeContainer = client.GetContainer("coffeebook-db", "Recipes");
+            var recipeContainer = client.GetContainer(Consts.COFFEEBOOK_DB, Consts.RECIPES_CONTAINER);
 
             var recipeQuery = recipeContainer.GetItemQueryIterator<Recipe>(new QueryDefinition(
                 "select * from r where r.userId = @userId")
