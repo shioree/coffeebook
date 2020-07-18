@@ -27,7 +27,7 @@
       <div>
         <mat-form-field class="form-field">
           <mat-label>パスワード</mat-label>
-          <input matInput required id="password" name="password" type="text" [(ngModel)]="user.password">
+          <input matInput required id="password" name="password" type="password" [(ngModel)]="user.password">
           <button mat-button *ngIf="user.password" matSuffix mat-icon-button aria-label="Clear" (click)="user.password=''">
             <mat-icon>close</mat-icon>
           </button>
