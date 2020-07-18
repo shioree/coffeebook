@@ -16,6 +16,7 @@ export class BrowseComponent implements OnInit {
   public conditions = new SearchConditions();
   public searchModels = new SearchModels();
   public isLoading = true;
+  public isSearchOpen = false;
 
   constructor(
     private recordService: RecordService
@@ -32,6 +33,10 @@ export class BrowseComponent implements OnInit {
     this.isLoading = false;
   }
 
+  public setOpenStatus() {
+    this.isSearchOpen = true;
+  }
+
   public narrowDown() {
     this.recipesNarrowedDown = this.recipes;
     if (this.conditions.rating !== 0) {
@@ -43,6 +48,7 @@ export class BrowseComponent implements OnInit {
     if (this.conditions.shop !== '') {
       this.recipesNarrowedDown = this.recipesNarrowedDown.filter(word => word.beans.shop === this.conditions.shop);
     }
+    this.isSearchOpen = false;
   }
 
 }

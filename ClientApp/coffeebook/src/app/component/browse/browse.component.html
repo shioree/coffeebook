@@ -6,20 +6,8 @@
     summary: '登録したコーヒーのレシピを閲覧できます。'
   }"></app-summary>
 
-  <!-- ロード中表示 -->
-  <ng-container *ngIf="isLoading === true">
-    <p>レシピを取得しています……</p>
-  </ng-container>
-
-  <!-- 取得結果が0件の場合 -->
-  <ng-container *ngIf="isLoading === false">
-    <div *ngIf="recipes.length === 0">
-      <p>表示するレシピがありません</p>
-    </div>
-  </ng-container>
-
   <!-- 検索条件入力欄 -->
-  <mat-expansion-panel>
+  <mat-expansion-panel [expanded]="isSearchOpen" (opened)="setOpenStatus()">
     <mat-expansion-panel-header>
       <mat-panel-title>
         検索条件を変更する
@@ -54,6 +42,18 @@
       </div>
     </form>
   </mat-expansion-panel>
+
+  <!-- ロード中表示 -->
+  <ng-container *ngIf="isLoading === true">
+    <p>レシピを取得しています……</p>
+  </ng-container>
+
+  <!-- 取得結果が0件の場合 -->
+  <ng-container *ngIf="isLoading === false">
+    <div *ngIf="recipes.length === 0">
+      <p>表示するレシピがありません</p>
+    </div>
+  </ng-container>
 
   <!-- メインコンテンツ -->
   <div class="recipe-container" *ngIf="recipes.length >= 1">
