@@ -15,6 +15,11 @@ using Newtonsoft.Json;
 
 namespace coffeebook
 {
+    /// <summary>
+    /// ログイン
+    /// </summary>
+    /// <remarks>ログインに成功したら、セッションIDをCookieに格納する</remarks>
+    /// <returns>ログインの成否</returns>
     public static class Login
     {
         [FunctionName("Login")]

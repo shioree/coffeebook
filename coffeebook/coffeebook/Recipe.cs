@@ -2,6 +2,9 @@
 
 namespace coffeebook
 {
+    /// <summary>
+    /// レシピの情報
+    /// </summary>
     public partial class Recipe
     {
         [JsonProperty("id")]
@@ -26,6 +29,9 @@ namespace coffeebook
         public string Memo { get; set; }
     }
 
+    /// <summary>
+    /// 豆の情報
+    /// </summary>
     public partial class Beans
     {
         [JsonProperty("origin")]
@@ -41,6 +47,9 @@ namespace coffeebook
         public string Grain { get; set; }
     }
 
+    /// <summary>
+    /// 評価の情報
+    /// </summary>
     public partial class Evaluation
     {
         [JsonProperty("rating")]
@@ -59,6 +68,9 @@ namespace coffeebook
         public string Comment { get; set; }
     }
 
+    /// <summary>
+    /// ドリップの情報
+    /// </summary>
     public partial class Style
     {
         [JsonProperty("beansAmount")]
@@ -77,6 +89,9 @@ namespace coffeebook
         public string ProductAmount { get; set; }
     }
 
+    /// <summary>
+    /// 削除のインターフェース
+    /// </summary>
     public partial class DeleteModel
     {
         [JsonProperty("id")]

@@ -1,5 +1,4 @@
 using System;
-using System.Text;
 using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
@@ -15,6 +14,10 @@ using Newtonsoft.Json;
 
 namespace coffeebook
 {
+    /// <summary>
+    /// サインアップ
+    /// </summary>
+    /// <returns>サインアップの成否</returns>
     public static class SignUp
     {
         [FunctionName("SignUp")]

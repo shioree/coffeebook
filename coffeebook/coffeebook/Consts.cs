@@ -1,6 +1,9 @@
 ﻿
 namespace coffeebook
 {
+    /// <summary>
+    /// 定数クラス
+    /// </summary>
     class Consts
     {
         // 設定値名称

@@ -12,6 +12,10 @@ namespace coffeebook
 {
     public static class FetchRecipes
     {
+        /// <summary>
+        /// レシピ取得
+        /// </summary>
+        /// <returns>ユーザーが登録しているすべてのレシピ</returns>
         [FunctionName("FetchRecipes")]
         public static async Task<IEnumerable<Recipe>> Run(
             [HttpTrigger(AuthorizationLevel.Function, "get", "post", Route = null)] HttpRequest req,

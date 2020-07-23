@@ -11,6 +11,11 @@ using Microsoft.Azure.Cosmos;
 
 namespace coffeebook
 {
+    /// <summary>
+    /// ログアウト
+    /// </summary>
+    /// <remarks>ログアウトに成功したら、セッションIDをCookieから削除する</remarks>
+    /// <returns>ログアウトの成否</returns>
     public static class Logout
     {
         [FunctionName("Logout")]

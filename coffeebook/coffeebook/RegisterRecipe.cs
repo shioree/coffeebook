@@ -10,6 +10,10 @@ using Newtonsoft.Json;
 
 namespace coffeebook
 {
+    /// <summary>
+    /// ÉåÉVÉsìoò^
+    /// </summary>
+    /// <returns>ìoò^ÇÃê¨î€</returns>
     public static class RegisterRecipe
     {
         [FunctionName("RegisterRecipe")]

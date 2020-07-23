@@ -8,6 +8,9 @@ using Newtonsoft.Json;
 
 namespace coffeebook
 {
+    /// <summary>
+    /// ユーザー情報のインターフェース
+    /// </summary>
     public partial class UserInfo
     {
         [JsonProperty("id")]
@@ -17,6 +20,9 @@ namespace coffeebook
         public string Password { get; set; }
     }
 
+    /// <summary>
+    /// ユーザークラス
+    /// </summary>
     public partial class User
     {
         [JsonProperty("userId")]
@@ -29,6 +35,9 @@ namespace coffeebook
         public byte[] Salt { get; set; }
     }
 
+    /// <summary>
+    /// セッションクラス
+    /// </summary>
     public partial class Session
     {
         [JsonProperty("id")]
@@ -41,11 +50,17 @@ namespace coffeebook
         public string SessionId { get; set; }
     }
 
+    /// <summary>
+    /// ユーザーに関連する定数
+    /// </summary>
     public class UserConst
     {
         public const string sessionId = "sessionId";
     }
 
+    /// <summary>
+    /// ユーザーに関連する共通メソッドを提供する
+    /// </summary>
     public class UserService
     {
         /// <summary>

@@ -1,6 +1,5 @@
 using System.IO;
 using System.Threading.Tasks;
-using System.Collections.Generic;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.Logging;
@@ -13,6 +12,11 @@ using System;
 
 namespace coffeebook
 {
+    /// <summary>
+    /// レシピ削除
+    /// </summary>
+    /// <remarks>指定されたIDのレシピを削除する</remarks>
+    /// <returns>削除の成否</returns>
     public static class DeleteRecipe
     {
         [FunctionName("DeleteRecipe")]
