@@ -13,17 +13,17 @@
 
     <div class="card-container">
 
-      <a class="card" routerLink="/record/drip">
+      <a class="card" (click)="onClickPageLink('/record/drip')">
         <img [src]="srcDrip" width="48" height="48" alt="ドリッパーとコーヒーサーバー">
         <span>ドリップ</span>
       </a>
 
-      <a class="card" routerLink="/under-construction">
+      <a class="card" (click)="onClickUnderConstruction()">
         <img [src]="srcPress" width="48" height="48" alt="フレンチプレス">
         <span>フレンチプレス</span>
       </a>
 
-      <a class="card" routerLink="/under-construction">
+      <a class="card" (click)="onClickUnderConstruction()">
         <img [src]="srcEspresso" width="48" height="48" alt="エスプレッソマシン">
         <span>エスプレッソ</span>
       </a>
@@ -38,12 +38,12 @@
 
     <div class="card-container">
 
-      <a class="card" routerLink="/browse/by-conditions">
+      <a class="card" (click)="onClickPageLink('/browse/by-conditions')">
         <img [src]="srcLoupe" width="48" height="48" alt="虫眼鏡">
         <span>条件から探す</span>
       </a>
 
-      <a class="card" routerLink="/under-construction">
+      <a class="card" (click)="onClickUnderConstruction()">
         <img [src]="srcTeacup" width="48" height="48" alt="コーヒーカップ">
         <span>気分から探す</span>
       </a>

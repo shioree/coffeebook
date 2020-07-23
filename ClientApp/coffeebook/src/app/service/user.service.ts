@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpHeaders, HttpRequest, HttpResponse, HttpErrorResponse } from '@angular/common/http';
 import { map, catchError } from 'rxjs/operators';
-import { Observable, of, Subject } from 'rxjs';
+import { Observable, of, Subject, BehaviorSubject } from 'rxjs';
 
 import { HttpClientService } from './http-client.service';
 import { User } from '../model/user.model';
@@ -18,7 +18,7 @@ export class UserService {
    * @private
    * @memberof UserService
    */
-  private loginStatus = new Subject<boolean>();
+  private loginStatus = new BehaviorSubject<boolean>(false);
 
   /**
    * Subscribe するためのプロパティ
@@ -47,6 +47,10 @@ export class UserService {
    */
   public onNotifyLoginStatusChanged(updated: boolean): void {
     this.loginStatus.next(updated);
+  }
+
+  public getCurrentLoginStatus(): boolean {
+    return this.loginStatus.value;
   }
 
   public signUp(user: User): Promise<any> {

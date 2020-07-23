@@ -15,6 +15,7 @@ import { MatInputModule } from '@angular/material/input';
 import { MatStepperModule } from '@angular/material/stepper';
 import { MatSelectModule } from '@angular/material/select';
 import { MatProgressSpinnerModule, MatSpinner } from '@angular/material/progress-spinner';
+import { MatDialogModule } from '@angular/material/dialog';
 import { OverlayModule } from '@angular/cdk/overlay';
 
 import { AppRoutingModule } from './app-routing.module';
@@ -32,6 +33,7 @@ import { RecipeComponent } from './component/recipe/recipe.component';
 import { SignUpComponent } from './component/sign-up/sign-up.component';
 import { LoginComponent } from './component/login/login.component';
 import { SignUpSucceededComponent } from './component/sign-up-succeeded/sign-up-succeeded.component';
+import { DialogComponent } from './component/dialog/dialog.component';
 
 import { HttpClientService } from './service/http-client.service';
 import { UserService } from './service/user.service';
@@ -51,7 +53,8 @@ import { RecipeService } from './service/recipe.service';
     RecipeComponent,
     SignUpComponent,
     LoginComponent,
-    SignUpSucceededComponent
+    SignUpSucceededComponent,
+    DialogComponent
   ],
   imports: [
     BrowserModule,
@@ -70,10 +73,12 @@ import { RecipeService } from './service/recipe.service';
     MatStepperModule,
     MatSelectModule,
     MatProgressSpinnerModule,
+    MatDialogModule,
     OverlayModule
   ],
   entryComponents: [
-    MatSpinner
+    MatSpinner,
+    DialogComponent
   ],
   providers: [
     HttpClientService,
