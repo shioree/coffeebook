@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { HttpResponse } from '@angular/common/http';
+import { HttpResponse, HttpErrorResponse } from '@angular/common/http';
 import { Overlay } from '@angular/cdk/overlay';
 import { ComponentPortal } from '@angular/cdk/portal';
 import { MatSpinner } from '@angular/material/progress-spinner';
@@ -17,6 +17,8 @@ export class SignUpComponent implements OnInit {
 
   public user: User = new User();
   public isSucceded = true;
+  public errorMessage: string;
+  private readonly badRequestMessage = 'ユーザー登録に失敗しました。<br>しばらくしてから、再度登録してください。';
 
   private overlayRef = this.overlay.create({
     hasBackdrop: true,
@@ -37,20 +39,29 @@ export class SignUpComponent implements OnInit {
     // スピナーの表示
     this.overlayRef.attach(new ComponentPortal(MatSpinner));
 
-    this.userService.signUp(this.user).then((res: HttpResponse<any>) => {
-      // スピナーの非表示
-      this.overlayRef.detach();
+    this.userService.signUp(this.user)
+      .then((res: HttpResponse<any>) => {
+        // スピナーの非表示
+        this.overlayRef.detach();
 
-      if (res.status === 200) {
-        this.router.navigate(['/sign-up/succeeded']);
-      } else {
+        if (res.status === 200) {
+          this.router.navigate(['/sign-up/succeeded']);
+        } else {
+          this.isSucceded = false;
+          this.errorMessage = this.badRequestMessage;
+        }
+      })
+      .catch((err: HttpErrorResponse) => {
+        // スピナーの非表示
+        this.overlayRef.detach();
+
         this.isSucceded = false;
-      }
-    }, (err: any) => {
-      // スピナーの非表示
-      this.overlayRef.detach();
-      this.isSucceded = false;
-    });
+        if (err.status === 409) {
+          this.errorMessage = err.error; // ユーザーIDの重複
+        } else {
+          this.errorMessage = this.badRequestMessage;
+        }
+      });
   }
 
 }

@@ -10,8 +10,7 @@
   <form id="form" #myForm="ngForm" (ngSubmit)="submit()" novalidate>
 
     <mat-error id="error-message" *ngIf="!isSucceded">
-      ユーザー登録に失敗しました。<br>
-      しばらくしてから、再度登録してください。
+      {{errorMessage}}
     </mat-error>
 
     <div class="form-group">
