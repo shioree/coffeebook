@@ -51,9 +51,9 @@ $ ng serve
 Microsoft Visual Studioのご利用をおすすめします。  
 以下のNuGetパッケージの最新版のインストールが必要です。
 
-1.Microsoft.Azure.Cosmos
-1.Microsoft.Azure.WebJobs.Extensions.CosmosDB
-1.Microsoft.NET.Sdk.Functions
+Microsoft.Azure.Cosmos  
+Microsoft.Azure.WebJobs.Extensions.CosmosDB  
+Microsoft.NET.Sdk.Functions  
 
 ## デプロイ
 アプリケーションの実行には、Azureストレージアカウント、Azure Functions(.NET)、Azure Cosmos DB のご用意が必要です。  
