@@ -47,7 +47,8 @@ $ ng serve
 ```
 
 **バックエンド環境構築手順**
-Microsoft Visual Studioのご利用をおすすめします。
+
+Microsoft Visual Studioのご利用をおすすめします。  
 以下のNuGetパッケージの最新版のインストールが必要です。
 
 1.Microsoft.Azure.Cosmos
@@ -59,6 +60,7 @@ Microsoft Visual Studioのご利用をおすすめします。
 Azureストレージアカウントは任意の静的ホスティングサービスで代替いただけます。  
 
 **Azure構築手順**
+
 （準備中）
 
 # 使用技術
