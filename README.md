@@ -48,7 +48,7 @@ $ ng serve
 
 **バックエンド環境構築手順**
 
-Microsoft Visual Studioのご利用をおすすめします。  
+統合開発環境にはMicrosoft Visual Studioのご利用をおすすめします。  
 以下のNuGetパッケージの最新版のインストールが必要です。
 
 Microsoft.Azure.Cosmos  
