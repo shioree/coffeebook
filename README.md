@@ -17,6 +17,48 @@
 利用にはユーザー登録が必要です。
 
 # 環境構築
+## 依存関係
+アプリケーションのクローンと実行には、GitとNode.jsが必要です。  
+
+**フロントエンド環境構築手順**
+
+1. リポジトリをクローンする
+
+```bash
+$ git clone https://github.com/shioree/coffeebook.git
+```
+
+2. インストールディレクトリへ移動する
+
+```bash
+$ cd coffeebook
+```
+
+3. 依存関係をインストールする
+
+```bash
+$ npm install
+```
+
+4. アプリを実行する
+
+```bash
+$ ng serve
+```
+
+**バックエンド環境構築手順**
+Microsoft Visual Studioのご利用をおすすめします。
+以下のNuGetパッケージの最新版のインストールが必要です。
+
+1.Microsoft.Azure.Cosmos
+1.Microsoft.Azure.WebJobs.Extensions.CosmosDB
+1.Microsoft.NET.Sdk.Functions
+
+## デプロイ
+アプリケーションの実行には、Azureストレージアカウント、Azure Functions(.NET)、Azure Cosmos DB のご用意が必要です。  
+Azureストレージアカウントは任意の静的ホスティングサービスで代替いただけます。  
+
+**Azure構築手順**
 （準備中）
 
 # 使用技術
