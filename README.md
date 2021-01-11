@@ -2,7 +2,6 @@
 コーヒーのレシピを記録するサービスです。
 
 [こちら](https://coffeebookstatichosting.z11.web.core.windows.net/)から動作をご覧いただけます。  
-（アカウント【ユーザー名：demo、パスワード：password】にデモデータを登録しています。）
 
 ![image](https://github.com/shioree/coffeebook/blob/master/images/top-page.png?raw=true)  
 ![image](https://github.com/shioree/coffeebook/blob/master/images/browse-page.png?raw=true)
